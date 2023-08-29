@@ -50,3 +50,9 @@ def register(request):
         return redirect('login')  # Replace 'login' with the URL name of your login page
 
     return render(request, 'register.html')
+
+def contact(request):
+        return render(request, 'contact.html')
+
+def about(request):
+        return render(request, 'about.html')        
