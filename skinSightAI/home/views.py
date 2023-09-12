@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
+from django.contrib.auth.hashers import make_password,check_password
 
 
 def landing(request):
@@ -26,6 +28,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
 def register(request):
+ if not request.user.is_authenticated: 
     if request.method == 'POST':
         full_name = request.POST['full_name']
         phone_number = request.POST['phone_number']
@@ -45,11 +48,12 @@ def register(request):
         user = User.objects.create_user(username=email, email=email, password=password)
         user.first_name = full_name
         user.save()
-
-        messages.success(request, "Registration successful. You can now log in.")
-        return redirect('login')  # Replace 'login' with the URL name of your login page
-
-    return render(request, 'register.html')
+        
+        return redirect('/login')
+    return render(request, "register.html")
+ else:
+            return redirect('/')
+    
 
 def contact(request):
         return render(request, 'contact.html')
