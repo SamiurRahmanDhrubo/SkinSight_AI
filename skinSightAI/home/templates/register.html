@@ -1,5 +1,5 @@
 <!-- register.html -->
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +11,7 @@
 
 body {
     font-family: Arial, sans-serif;
+    background-image: url('{% static 'img/regbg.png' %}');
     background-color: #f3f3f3;
     margin: 0;
     padding: 0;
@@ -21,11 +22,13 @@ body {
 }
 
 .container {
-    background-color: white;
+    background-color: rgb(73, 173, 135);
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     width: 300px;
+    opacity: 0.75;
+    
 }
 
 h2 {
@@ -58,6 +61,8 @@ button {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 100px;
+    margin: 8px 100px;
 }
 
 button:hover {
