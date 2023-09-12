@@ -17,15 +17,19 @@
   <div class="banner">
     <div class="navbar">
       <div class="logo">
-        <img src="{% static 'img/logo-color.png' %}" alt="logo" width="200px">
+        <img src="{% static 'img/logo-color.png' %}" alt="logo" width="100px">
       </div>
       <div class="nav-links">
         <ul>
           <li><a href="#">Home</a></li>
+          
+          <li><a href="#">Features</a></li>
           <li><a href="#">About Us</a>
-          </li> <li><a href="#">Contact Us</a></li>
+          </li> <li><a href="{% url 'contact' %}">Contact Us</a></li>
           <li><a href="#">FAQ</a></li> 
           <li><a href="#">Artificial Intelligence</a></li>
+          <li><a href="#">Log In</a></li>
+          <li><a href="#">Registration</a></li>
         </ul>
       </div>
     </div>
