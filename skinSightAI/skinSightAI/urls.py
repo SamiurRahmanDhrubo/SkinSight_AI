@@ -25,6 +25,8 @@ urlpatterns = [
     path('register/', home.views.register, name='register_page'),
     path('contact/', home.views.contact, name='contact'),
     path('about/', home.views.about, name='about'),
+    path('ai/', home.views.ai, name='artificial_intelligence'),
+
 
 
 ]

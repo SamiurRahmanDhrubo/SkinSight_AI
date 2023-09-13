@@ -66,3 +66,6 @@ def contact(request):
 
 def about(request):
     return render(request, 'about.html')
+
+def ai(request):
+    return render(request, 'ai.html')
