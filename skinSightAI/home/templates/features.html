@@ -295,8 +295,9 @@ footer{
             <h2 class="logo" style="width: 50px; font-size: 15px;"><img src="{% static 'img/logo-color.png' %}" style="height: 50px; width: 50px;"></h2>
             <ul>
 
+                <li><a href="{% url 'landing' %}">Home</a></li>
+                
                 <li><a href="{% url 'about' %}">About Us</a></li>
-                <li><a href="{% url 'feature_page' %}">Features</a></li>
                 <li><a href="{% url 'contact' %}">Contact Us</a></li>
                 <li><a href="">T&C</a></li>
                 <li><a href="">FAQ</a></li>
@@ -311,28 +312,45 @@ footer{
 
 <!--    banner-->
 
-    <div id="about-2" style="background-color: white; padding: 50px;">
+    <div id="about-2" style="background-color: white; width: 100%; padding: 30px;">
      <div class="content-box-lg">
          <div class="container">
              <div class="row">
                  <div class="col-md-1">
                     <div class="about-item text-center">
-                     <img src="{% static 'img/man-318621c4.png' %}" style="height: 300px; width: 300px;" alt="#">
-
+                     <img src="{% static 'img/pngtree-chip-ai-human-brain-intelligence-technology-chip-high-tech-circuit-board-png-image_6606248.png' %}" style="height: 150px; width: 50px;" alt="#">
+                    <h3>Smart
+                        SkinSight AI is created on the basis of artificial intelligence as a result of joint work of IT specialists and doctors. Our app has the Same accuracy as a professional dermatologist</h3>
                      </div>
                  </div>
+
                  <div class="col-md-1">
                     <div class="about-item text-center">
-                     <center><i class="fa-solid fa-circle-exclamation"></i></center>
-                     <h2 style="margin-top: 25px;"><center>How Skin Problems Risking Your Life
-                    </center></h2>
-                     <hr>
-                     <h3 style="width: 300px;"> Many skin diseases, such as eczema, psoriasis, and shingles, can cause intense itching, burning, pain, and discomfort. This can disrupt daily activities, sleep, and overall quality of life, impacting both physical and mental well-being.
-                        Damaged skin from conditions like cuts, blisters, or open sores can create pathways for bacteria, viruses, and fungi to enter the body. This increases the risk of secondary infections, which can be more severe and harder to treat than the original skin issue.
+                     <img src="{% static 'img/istockphoto-945873958-612x612.jpg' %}" style="height: 150px; width: 50px;" alt="#">
+                    <h3>Simple
+                        You bring the phone to a mole or other formation on the skin, and in 1 minute you will know if there is any reason for concern.
                         </h3>
-
                      </div>
                  </div>
+
+                 <div class="col-md-1">
+                    <div class="about-item text-center">
+                     <img src="{% static 'img/4198308.png' %}" style="height: 150px; width: 50px;" alt="#">
+                        <h3>Accessible
+                            SkinSight AI is available anytime, anywhere. Keep your health in check at your fingertips even when you are on the go.
+                            </h3>
+                     </div>
+                 </div>
+
+                 <div class="col-md-1">
+                    <div class="about-item text-center">
+                     <img src="{% static 'img/3203331-200.png' %}" style="height: 150px; width: 50px;" alt="#">
+                        <h3>Affordable
+                            SkinSight AI's leading image analytics features come at an unbeatable price, fit for any request or budget. Flexible pricing plans and customizable bundles will save your practice both time and money.
+                            </h3>
+                     </div>
+                 </div>
+                 
              </div>
          </div>
      </div>
@@ -360,7 +378,8 @@ footer{
                      <h3>Links</h3>
                      <div class="links">
                         <a href="{% url 'about' %}">About Us</a>
-                        <a href="{% url 'feature_page' %}">Features</a>
+                        
+                        <a href="">Features</a>
                         <a href="">Artificial Intelligence</a>
                      </div>
                   </div>
