@@ -7,6 +7,9 @@ from django.contrib.auth.hashers import make_password, check_password
 def landing(request):
     return render(request, 'landing.html')
 
+def user_profile(request):
+    return render(request, 'profile_page.html')    
+
 
 def features(request):
     return render(request, 'features.html')
