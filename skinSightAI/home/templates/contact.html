@@ -89,13 +89,31 @@
     </nav>
     <div class="contact-form">
       <h1>Contact Us</h1>
-      <form action="/contact" method="post">
-        <input type="text" name="name" placeholder="Your Name" />
-        <input type="email" name="email" placeholder="Your Email" />
-        <input type="text" name="subject" placeholder="Subject" />
-        <textarea name="message" placeholder="Your Message"></textarea>
+      <form action="/contact" method="post" onsubmit="return validateForm();">
+        <input type="text" name="name" id="name" placeholder="Your Name" />
+        <input type="email" name="email" id="email" placeholder="Your Email" />
+        <input type="text" name="subject" id="subject" placeholder="Subject" />
+        <textarea
+          name="message"
+          id="message"
+          placeholder="Your Message"
+        ></textarea>
         <input type="submit" value="Send" />
       </form>
     </div>
+    <script>
+      function validateForm() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var subject = document.getElementById("subject").value;
+        var message = document.getElementById("message").value;
+
+        if (name === "" || email === "" || subject === "" || message === "") {
+          alert("Please fill in all fields.");
+          return false; // Prevent form submission
+        }
+        return true; // Allow form submission
+      }
+    </script>
   </body>
 </html>

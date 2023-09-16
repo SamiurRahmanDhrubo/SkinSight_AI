@@ -3,6 +3,7 @@
   <head>
     <title>About Us</title>
     <style>
+      /* Your existing styles here */
       body {
         font-family: sans-serif;
         margin: 0;
@@ -29,7 +30,7 @@
       }
 
       .navbar {
-        background-color: black;
+        background-color: #04aa6d;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -68,14 +69,15 @@
     <nav class="navbar">
       <a class="navbar-logo" href="#">SkinSightAI</a>
       <ul class="navbar-links">
-        <li><a href="{% url 'landing' %}">Home</a></li>
+        <li><a href="#">Home</a></li>
         <li><a href="#">Login</a></li>
         <li><a href="#">Register</a></li>
-        <li><a href="{% url 'contact' %}">Contact</a></li>
+        <li><a href="#">Contact</a></li>
       </ul>
     </nav>
     <div class="container">
       <h1>About Us</h1>
+
       <p>
         We are a team of doctors, engineers, and scientists who are passionate
         about using technology to improve the lives of people with skin
