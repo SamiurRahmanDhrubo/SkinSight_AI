@@ -1,203 +1,259 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your Website Title</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/landing.css' %}">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/landing.css' %}"
+    />
     <!-- Include Bootstrap CSS (CDN) -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-</head>
-<body>
-    <div class="banner" style=" background-image: url('{%static 'img/wallgreen.png'%}');">
-       <nav> 
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div
+      class="banner"
+      style="background-image: url('{%static 'img/wallgreen.png'%}')"
+    >
+      <nav>
         <div class="navbar">
-            <img src="{% static 'img/logo-color.png' %}" class="logo">
-            
-            <ul>
-                <li><a href="{% url 'landing' %}">Home</a></li>
-                <li><a href="{% url 'feature_page' %}">Features</a></li>
-                <li><a href="{% url 'about' %}">About Us</a></li>
-                <li><a href="{% url 'contact' %}">Contact Us</a></li>
-                <li><a href="">T&C</a></li>
-                <li><a href="">FAQ</a></li>
-                <li><a href="">Artificial Intelligence</a></li>
-                
-                <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-            </ul>
-            
-        </div>
-    </nav>
-        <div class="content">
-            <h1>Say No To Skin Diseases! </h1>
-            <p>Check your skin on the smartphone and get instant results within 1 minute.</p> 
-            <div>
-            <a href="{% url 'login_page' %}"><button type="button"><span></span>Log In</button> </a>
-            <a href="{% url 'register_page' %}"><button type="button"><span></span>Register </button></a>
-            </div>
-            <p style="font-size:xx-small; color: black;">* The scan result is not a diagnosis. To obtain an accurate diagnosis and a recommendation for treatment - consult your doctor. </p>
-        </div>
+          <img src="{% static 'img/logo-color.png' %}" class="logo" />
 
+          <ul>
+            <li><a href="{% url 'landing' %}">Home</a></li>
+            <li><a href="{% url 'feature_page' %}">Features</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+            <li><a href="">T&C</a></li>
+            <li><a href="">FAQ</a></li>
+            <li><a href="">Artificial Intelligence</a></li>
+            
+
+            <li>
+              <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="content">
+        <h1>Say No To Skin Diseases!</h1>
+        <p>
+          Check your skin on the smartphone and get instant results within 1
+          minute.
+        </p>
+        <div>
+          <a href="{% url 'login_page' %}"
+            ><button type="button"><span></span>Log In</button>
+          </a>
+          <a href="{% url 'register_page' %}"
+            ><button type="button"><span></span>Register</button></a
+          >
+        </div>
+        <p style="font-size: xx-small; color: black">
+          * The scan result is not a diagnosis. To obtain an accurate diagnosis
+          and a recommendation for treatment - consult your doctor.
+        </p>
+      </div>
     </div>
-
-    
 
     <!-- Your website content goes here -->
 
-   <!--    banner-->
+    <!--    banner-->
 
-   <div id="about-2" style="background-color: white; padding: 50px;">
-    <div class="content-box-lg">
+    <div id="about-2" style="background-color: white; padding: 50px">
+      <div class="content-box-lg">
         <div class="container2">
-            <div class="row">
-                <div class="col-md-4">
-                   <div class="about-item text-center">
-                    <img src="{% static 'img/man-318621c4.png' %}" style="height: 300px; width: 300px;" alt="#">
-
-                    </div>
-                </div>
-                <div class="col-md-7">
-                   <div class="about-item text-center">
-                    <center><i class="fa-solid fa-circle-exclamation"></i></center>
-                    <h2 style="margin-top: 25px;"><center>How Skin Problems Risking Your Life
-                   </center></h2>
-                    <hr style="width: 500px;">
-                    <h3 style="width: 100%; font-size: medium; text-align: justify;"> Many skin diseases, such as eczema, psoriasis, and shingles, can cause intense itching, burning, pain, and discomfort. This can disrupt daily activities, sleep, and overall quality of life, impacting both physical and mental well-being.
-                        Damaged skin from conditions like cuts, blisters, or open sores can create pathways for bacteria, viruses, and fungi to enter the body. This increases the risk of secondary infections, which can be more severe and harder to treat than the original skin issue.
-                        Some skin diseases, like cellulitis and impetigo, can lead to more serious complications if left untreated. Additionally, certain skin conditions are associated with systemic effects, meaning they can affect other parts of the body, potentially impacting organs and overall health.
-                        Visible skin diseases, such as acne, vitiligo, or severe eczema, can have a profound impact on an individual's self-esteem, body image, and mental health. The stigma and social isolation associated with these conditions can lead to anxiety, depression, and other psychological issues.
-                         Skin diseases can manifest in various ways, making accurate diagnosis complex. Misdiagnosis or delayed diagnosis can result in inappropriate treatments, leading to worsening of the condition and potential complications.</h3>
-
-                    </div>
-                </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="about-item text-center">
+                <img
+                  src="{% static 'img/man-318621c4.png' %}"
+                  style="height: 300px; width: 300px"
+                  alt="#"
+                />
+              </div>
             </div>
+            <div class="col-md-7">
+              <div class="about-item text-center">
+                <center><i class="fa-solid fa-circle-exclamation"></i></center>
+                <h2 style="margin-top: 25px">
+                  <center>How Skin Problems Risking Your Life</center>
+                </h2>
+                <hr style="width: 500px" />
+                <h3 style="width: 100%; font-size: medium; text-align: justify">
+                  Many skin diseases, such as eczema, psoriasis, and shingles,
+                  can cause intense itching, burning, pain, and discomfort. This
+                  can disrupt daily activities, sleep, and overall quality of
+                  life, impacting both physical and mental well-being. Damaged
+                  skin from conditions like cuts, blisters, or open sores can
+                  create pathways for bacteria, viruses, and fungi to enter the
+                  body. This increases the risk of secondary infections, which
+                  can be more severe and harder to treat than the original skin
+                  issue. Some skin diseases, like cellulitis and impetigo, can
+                  lead to more serious complications if left untreated.
+                  Additionally, certain skin conditions are associated with
+                  systemic effects, meaning they can affect other parts of the
+                  body, potentially impacting organs and overall health. Visible
+                  skin diseases, such as acne, vitiligo, or severe eczema, can
+                  have a profound impact on an individual's self-esteem, body
+                  image, and mental health. The stigma and social isolation
+                  associated with these conditions can lead to anxiety,
+                  depression, and other psychological issues. Skin diseases can
+                  manifest in various ways, making accurate diagnosis complex.
+                  Misdiagnosis or delayed diagnosis can result in inappropriate
+                  treatments, leading to worsening of the condition and
+                  potential complications.
+                </h3>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-   </div>
 
-   <div class="cont3">
-    <h2>How to Use skinsight AI</h2>
-   </div>
+    <div class="cont3">
+      <h2>How to Use skinsight AI</h2>
+    </div>
 
-   <div id="about-2" style="background-color: white; padding: 50px;">
-    <div class="content-box-lg">
+    <div id="about-2" style="background-color: white; padding: 50px">
+      <div class="content-box-lg">
         <div class="container2">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="about-item text-center">
-                     <img src="{% static 'img/Screenshot 2023-08-09 005152.png' %}" style="height: 150px; width: 150px;" alt="#">
-                     <h2 style="margin-top: 25px;"><center>Take a photo*
-                    </center></h2>
-                     <hr>
-                     <h3 style="width: 100%; font-size: medium; text-align: justify;"> 
-                        Keep zoomed at the closest distance (less than 10 cm), keep in focus and center only the skin mark 
-                        (without hair, wrinkles and other objects)
-                    </h3>
- 
-                     </div>
-                 </div>
-                 <div class="col-md-4">
-                    <div class="about-item text-center">
-                     <img src="{% static 'img/Screenshot 2023-08-09 005255.png' %}" style="height: 150px; width: 150px;" alt="#">
-                     <h2 style="margin-top: 25px;"><center>Identify and send
-                    </center></h2>
-                     <hr>
-                     <h3 style="width: 100%; font-size: medium; text-align: justify;"> 
-                        Send your photo to the Artificial Intelligence. The system will analyze it and send you a risk assessment. 
-                    </h3>
- 
-                     </div>
-                 </div>
-                <div class="col-md-4">
-                   <div class="about-item text-center">
-                    <img src="{% static 'img/Screenshot 2023-08-09 005335.png' %}" style="height: 150px; width: 150px;" alt="#">
-                    <h2 style="margin-top: 25px;"><center>Receive your risk assessment **
-                   </center></h2>
-                    <hr>
-                    <h3 style="width: 100%; font-size: medium; text-align: justify;">
-                        Get the result within 60 seconds and related advice on the next steps to take. 
-                    </h3>
-
-                    </div>
-                </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="about-item text-center">
+                <img
+                  src="{% static 'img/Screenshot 2023-08-09 005152.png' %}"
+                  style="height: 150px; width: 150px"
+                  alt="#"
+                />
+                <h2 style="margin-top: 25px"><center>Take a photo*</center></h2>
+                <hr />
+                <h3 style="width: 100%; font-size: medium; text-align: justify">
+                  Keep zoomed at the closest distance (less than 10 cm), keep in
+                  focus and center only the skin mark (without hair, wrinkles
+                  and other objects)
+                </h3>
+              </div>
             </div>
+            <div class="col-md-4">
+              <div class="about-item text-center">
+                <img
+                  src="{% static 'img/Screenshot 2023-08-09 005255.png' %}"
+                  style="height: 150px; width: 150px"
+                  alt="#"
+                />
+                <h2 style="margin-top: 25px">
+                  <center>Identify and send</center>
+                </h2>
+                <hr />
+                <h3 style="width: 100%; font-size: medium; text-align: justify">
+                  Send your photo to the Artificial Intelligence. The system
+                  will analyze it and send you a risk assessment.
+                </h3>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="about-item text-center">
+                <img
+                  src="{% static 'img/Screenshot 2023-08-09 005335.png' %}"
+                  style="height: 150px; width: 150px"
+                  alt="#"
+                />
+                <h2 style="margin-top: 25px">
+                  <center>Receive your risk assessment **</center>
+                </h2>
+                <hr />
+                <h3 style="width: 100%; font-size: medium; text-align: justify">
+                  Get the result within 60 seconds and related advice on the
+                  next steps to take.
+                </h3>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-   </div>
 
+    <!--end banner-->
 
+    <!--Footer-->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col" id="company">
+            <img
+              src="{% static 'img/logo-color.png' %}"
+              style="height: 50px; width: 50px"
+            />
+            <h3>
+              SkinSight Ai is not intended to perform diagnosis, but rather to
+              provide users the ability to image, track, and better understand
+              their moles.
+            </h3>
+          </div>
 
-<!--end banner-->
+          <div class="col" id="useful-links">
+            <h3>Links</h3>
+            <div class="links">
+              <a href="{% url 'about' %}">About Us</a>
+              <a href="{% url 'feature_page' %}">Features</a>
+              <a href="">Artificial Intelligence</a>
+              <a href="{% url 'contact' %}">Contact Us</a>
+              <a href="{% url 'register_page' %}">Register</a>
+              <a href="">FAQ</a>
+            </div>
+          </div>
 
-<!--Footer-->
-   <footer>
-       <div class="container">
-           <div class="row">
-                 <div class="col" id="company"  >
-                     <img src="{% static 'img/logo-color.png' %}" style="height: 50px; width: 50px;">
-                     <h3>
-                       SkinSight Ai is not intended to perform diagnosis, but rather to provide users the ability to image, track, and better understand their moles.
-                     </h3>
-                     
-                 </div>
+          <div class="col" id="company">
+            <h3>
+              If you have any question about our AI system - contact with us
+              through email:
+            </h3>
+            <h5>support@skinsight-ai.com</h5>
+            <div class="social">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
 
-
-                 <div class="col" id="useful-links">
-                   <h3>Links</h3>
-                   <div class="links">
-                    <a href="{% url 'about' %}">About Us</a>
-                    <a href="{% url 'feature_page' %}">Features</a>
-                    <a href="">Artificial Intelligence</a>
-                      <a href="{% url 'contact' %}">Contact Us</a>
-                      <a href="{% url 'register_page' %}">Register</a>
-                      <a href="">FAQ</a>
-                   </div>
-                </div>
-
-                <div class="col" id="company">
-                   <h3>
-                       If you have any question about our AI system - contact with us through email:
-                   </h3>
-                   <h5>support@skinsight-ai.com
-                   </h5>
-                   <div class="social">
-                       <a href="#"><i class="fab fa-facebook"></i></a>
-                       <a href="#"><i class="fab fa-instagram"></i></a>
-                       <a href="#"><i class="fab fa-youtube"></i></a>
-                       <a href="#"><i class="fab fa-twitter"></i></a>
-                       <a href="#"><i class="fab fa-linkedin"></i></a>
-                     </div>
-                   
-               </div>
-           
-           </div>
-
-           <div class="row">
-                 <div class="form">
-                   <form action="">
-                       <input type="text" placeholder="Email here...">
-                       <button><i class="fa fa-paper-plane"></i></button>
-                   </form>
-                 </div>
-           </div>
-
-       </div>
+        <div class="row">
+          <div class="form">
+            <form action="">
+              <input type="text" placeholder="Email here..." />
+              <button><i class="fa fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
     </footer>
-<b style="font-style: italic; color: red; padding: 20px 0 20px 0;"><center>SkinSight AI | All Rights Reserved. Copyright © 2023
-</center></b>
+    <b style="font-style: italic; color: red; padding: 20px 0 20px 0"
+      ><center>SkinSight AI | All Rights Reserved. Copyright © 2023</center></b
+    >
 
     <!-- Include Bootstrap JS (CDN) and jQuery (required for Bootstrap) -->
 
-    <script type="text/javascript"> 
-        window.addEventListener("scroll", function(){
-            var navbar = document.querySelector("navbar"); 
-            navbar.classList.toggle("sticky", window.scrolly > 0)
-    }) 
+    <script type="text/javascript">
+      window.addEventListener("scroll", function () {
+        var navbar = document.querySelector("navbar");
+        navbar.classList.toggle("sticky", window.scrolly > 0);
+      });
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+  </body>
 </html>
