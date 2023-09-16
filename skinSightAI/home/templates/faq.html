@@ -1,0 +1,186 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/faq.css' %}">
+    <!-- Include Bootstrap CSS (CDN) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="banner" style=" background-image: url('{%static 'img/iStock-1089085928.webp'%}');">
+       <nav> 
+        <div class="navbar">
+            <img src="{% static 'img/logo-color.png' %}" class="logo">
+            
+            <ul>
+                <li><a href="{% url 'landing' %}">Home</a></li>
+                <li><a href="{% url 'feature_page' %}">Features</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                <li><a href="{% url 't&c_page' %}">T&C</a></li> 
+
+                <li><a href="{% url 'faq_page' %}">FAQ</a></li> 
+                <li><a href="">Artificial Intelligence</a></li>
+                
+                <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+            </ul>
+            
+        </div>
+    </nav>
+        <div class="content">
+            <h1>Frequently Asked Questions </h1>
+            <p>Answers to Your Common Questions.</p> 
+            <!-- <div>
+            <a href="{% url 'login_page' %}"><button type="button"><span></span>Log In</button> </a>
+            <a href="{% url 'register_page' %}"><button type="button"><span></span>Register </button></a>
+            </div> -->
+            <p style="font-size:xx-small; color: black;">* The scan result is not a diagnosis. To obtain an accurate diagnosis and a recommendation for treatment - consult your doctor. </p>
+        </div>
+
+    </div>
+    <!-- Header -->
+
+    <div class="acc">
+
+        <h1>FAQ</h1>
+
+<div class="accordion">
+  <div class="accordion-item" id="acc1">
+    <div class="accordion-item-header">
+        How is Machine Learning used in the application?
+
+    </div>
+    <div class="accordion-item-body" id="acc2">
+      <div class="accordion-item-body-content">
+        We have trained the application algorithm with large quantities of images which were previously assessed by our team of dermatologists. 
+        The algorithm learns which lesions are dangerous and which ones are not. We continuously train and improve our algorithm with new sets of images. 
+It is common for doctors to ask a second opinion, and so at this moment, every photo is also reviewed by our in-house dermatologists and image 
+recognition experts. We have set up this process to assist the algorithm to become more accurate and to make sure that our dermatologists agree with the risk indication. The best part, however, is that we are training our algorithm to become on a par with the best dermatologists.
+Every photo of skin spots makes our algorithm smarter at detecting skin cancer risk.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item" id="acc2">
+    <div class="accordion-item-header" >
+        What is an SkinSight AI?
+
+    </div>
+    <div class="accordion-item-body" id="acc1">
+      <div class="accordion-item-body-content">
+        SkinSight AI is Skinicare AI-Assistant, based on deep learning & computer vision technologies & medical experience.
+SkinSight AI enables you to check your skin spots for signs of skin cancer within 30 seconds. Our algorithm is currently at the level of a specialist dermatologist and we continue improve it. In skin spots with a potential health risk, AI Dermatologist provides feedback about the preferred next step to take.
+SkinSight AI also enables you to store photos to keep track of changes over time, helping you to monitor your health in the long term. The efficient and easy-to-use chat-bot solution is available for Telegram and Facebook Messenger and helps to make skin monitoring a simple routine.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item" id="acc1">
+    <div class="accordion-item-header">
+        Who should use SkinSight AI?
+
+    </div>
+    <div class="accordion-item-body" id="acc2">
+      <div class="accordion-item-body-content">
+        If you have one or more skin spots, then SkinSight AI is for you. Our customers range from people with just a few skin spots to people who survived skin disease and want an easy and accurate way to keep track of their skin health. Like them, you can establish a skin health routine and monitor your skin regularly with SkinSight AI to keep it healthy. Many customers tell us they were completely unaware that they were even at risk when they detected skin diseases using SkinSight AI . This shows the importance of taking an active role in checking and monitoring your skin health regularly. 
+
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item" id="acc2">
+    <div class="accordion-item-header">
+        Does SkinSight AI replace the Doctor?
+
+    </div>
+    <div class="accordion-item-body" id="acc1">
+      <div class="accordion-item-body-content">
+        SkinSight AI is not a diagnostic device and does not replace a visit to your doctor. SkinSight AI  helps you to become more aware of your skin so you can visit a doctor in time, and prepared.  If at any time you feel uncomfortable or you see that your skin spot is changing, irritating or bleeding, we recommend that you visit a medical specialist without hesitation. 
+
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item" id="acc1">
+    <div class="accordion-item-header">
+        Is my personal information safe?
+
+    </div>
+    <div class="accordion-item-body" id="acc2">
+      <div class="accordion-item-body-content">
+        Yes, we do everything we can to protect your personal information. AI Dermatologist doesn’t sell your personal information to third parties and performs all possible measures to keep your data safe. All personal information and data is treated confidentially by authorized personnel.
+        All data you provide to us is stored on secure cloud servers on territory of the Asian or stored by trusted external service providers outside the Asian who work according to similar standards. We do everything we can to ensure that external service providers handle your data securely and according to the applicable law.
+        All data you provide through the App and / or the Website are encrypted when transferred to and from the servers using Transport Layer Security (TLS). Furthermore, data is stored in coded form when stored on the servers.
+        We store your account data and your digital images on separate data warehouses. The cloud server infrastructure is protected by firewalls and monitoring.
+        Read our privacy policy for more information.
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+    
+
+<!--Footer-->
+<footer>
+    <div class="container">
+        <div class="row">
+              <div class="col" id="company"  >
+                  <img src="{% static 'img/logo-color.png' %}" style="height: 50px; width: 50px;">
+                  <h3>
+                    SkinSight Ai is not intended to perform diagnosis, but rather to provide users the ability to image, track, and better understand their moles.
+                  </h3>
+                  
+              </div>
+
+
+              <div class="col" id="useful-links">
+                <h3>Links</h3>
+                <div class="links">
+                 <a href="{% url 'about' %}">About Us</a>
+                 <a href="{% url 'feature_page' %}">Features</a>
+                 <a href="">Artificial Intelligence</a>
+                   <a href="{% url 'contact' %}">Contact Us</a>
+                   <a href="{% url 'register_page' %}">Register</a>
+                <a href="{% url 't&c_page' %}">T&C</a>
+
+                   <a href="">FAQ</a>
+                </div>
+             </div>
+
+             <div class="col" id="company">
+                <h3>
+                    If you have any question about our AI system - contact with us through email:
+                </h3>
+                <h5>support@skinsight-ai.com
+                </h5>
+                <div class="social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                  </div>
+                
+            </div>
+        
+        </div>
+
+        <div class="row">
+              <div class="form">
+                <form action="">
+                    <input type="text" placeholder="Email here...">
+                    <button><i class="fa fa-paper-plane"></i></button>
+                </form>
+              </div>
+        </div>
+
+    </div>
+ </footer>
+<b style="font-style: italic; color: red; padding: 20px 0 20px 0;"><center>SkinSight AI | All Rights Reserved. Copyright © 2023
+</center></b>
+<script src="{% static 'js/faq.js' %}"></script>
+</body>
+</html>

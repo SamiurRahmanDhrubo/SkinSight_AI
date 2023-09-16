@@ -72,3 +72,9 @@ def about(request):
 
 def ai(request):
     return render(request, 'ai.html')
+
+def faq(request):
+    return render(request, 'faq.html')
+
+def term(request):
+    return render(request, 'terms.html')
