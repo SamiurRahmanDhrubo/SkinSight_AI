@@ -1,195 +1,234 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Features</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkinSight AI</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/features.css' %}"
+    />
     <!-- Include Bootstrap CSS (CDN) -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-</head>
-<body>
-    <div class="banner" style=" background-image: url('{%static 'img/wallgreen.png'%}');">
-       <nav> 
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div
+      class="banner"
+      style="background-image: url('{%static 'img/technology-in-the-concept-of-digital-background-v_1517348jpg!w700wp.webp'%}')"
+    >
+      <nav>
         <div class="navbar">
-            <img src="{% static 'img/logo-color.png' %}" class="logo">
-            
-            <ul>
-                <li><a href="{% url 'landing' %}">Home</a></li>
-                <li><a href="{% url 'feature_page' %}">Features</a></li>
-                <li><a href="{% url 'about' %}">About Us</a></li>
-                <li><a href="{% url 'contact' %}">Contact Us</a></li>
-                <li><a href="{% url 't&c_page' %}">T&C</a></li> 
-                <li><a href="{% url 'faq_page' %}">FAQ</a></li> 
-                <li><a href="">Artificial Intelligence</a></li>
-                
-                <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-            </ul>
-            
-        </div>
-    </nav>
-        <div class="content">
-            <h1>Say No To Skin Diseases! </h1>
-            <p>Check your skin on the smartphone and get instant results within 1 minute.</p> 
-            <!-- <div>
-            <a href="{% url 'login_page' %}"><button type="button"><span></span>Log In</button> </a>
-            <a href="{% url 'register_page' %}"><button type="button"><span></span>Register </button></a>
-            </div> -->
-            <p style="font-size:xx-small; color: black;">* The scan result is not a diagnosis. To obtain an accurate diagnosis and a recommendation for treatment - consult your doctor. </p>
-        </div>
+          <img src="{% static 'img/logo-color.png' %}" class="logo" />
 
+          <ul>
+            <li><a href="{% url 'landing' %}">Home</a></li>
+            <li><a href="{% url 'feature_page' %}">Features</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+            <li><a href="{% url 't&c_page' %}">T&C</a></li> 
+
+            <li><a href="{% url 'faq_page' %}">FAQ</a></li> 
+
+            <li><a href="">Artificial Intelligence</a></li>
+            
+
+            <li>
+              <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="content">
+        <h1>Features</h1>
+        <p>
+            Explor Our Impressive Features.
+        </p>
+        <!-- <div>
+          <a href="{% url 'login_page' %}"
+            ><button type="button"><span></span>Log In</button>
+          </a>
+          <a href="{% url 'register_page' %}"
+            ><button type="button"><span></span>Register</button></a
+          >
+        </div> -->
+        <p style="font-size: xx-small; color: black">
+          * The scan result is not a diagnosis. To obtain an accurate diagnosis
+          and a recommendation for treatment - consult your doctor.
+        </p>
+      </div>
     </div>
-
-    
 
     <!-- Your website content goes here -->
 
-   <!--    banner-->
+    <!--    banner-->
 
-  
+   
 
-   <div class="cont3">
-    <h2>Why is SkinSight AI worth using?
-    </h2>
-   </div>
-
-   <div id="about-2" style=" background-color:antiquewhite; padding: 8% 0 8% 0;">
-    <div class="content-box-lg">
-        <div class="container2">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="about-item text-center">
-                     <img src="{% static 'img/pngtree-chip-ai-human-brain-intelligence-technology-chip-high-tech-circuit-board-png-image_6606248.png' %}" style="height: 150px; width: 150px;" alt="#">
-                     <h2 style="margin-top: 25px;"><b><center>Smart
-                    </center></h2></b>
-                     <hr>
-                     <h3 style="width: 100%; font-size: medium; text-align: justify;"> 
-                      SkinSight AI is created on the basis of artificial intelligence as a result of joint work of IT specialists and doctors. Our app has the Same accuracy as a professional dermatologist
-
-                    </h3>
- 
-                     </div>
-                 </div>
-                 <div class="col-md-3">
-                    <div class="about-item text-center">
-                     <img src="{% static 'img/istockphoto-945873958-612x612.jpg' %}" style="height: 150px; width: 150px;" alt="#">
-                     <h2 style="margin-top: 25px;"><b><center>Simple
-                    </center></b></h2>
-                     <hr>
-                     <h3 style="width: 100%; font-size: medium; text-align: justify;"> 
-                      SkinSight AI is available anytime, anywhere. Keep your health in check at your fingertips even when you are on the go.
-
- 
-                    </h3>
- 
-                     </div>
-                 </div>
-
-                 <div class="col-md-3">
-                  <div class="about-item text-center">
-                   <img src="{% static 'img/4198308.png' %}" style="height: 150px; width: 150px;" alt="#">
-                   <h2 style="margin-top: 25px;"><b><center>Accessible
-                </center></b></h2>
-                   <hr>
-                   <h3 style="width: 100%; font-size: medium; text-align: justify;"> 
-                    SkinSight AI's leading image analytics features come at an unbeatable price, fit for any request or budget. Flexible pricing plans and customizable bundles will save your practice both time and money.
- 
-                  </h3>
-
-                   </div>
-               </div>
-                <div class="col-md-3">
-                   <div class="about-item text-center">
-                    <img src="{% static 'img/3203331-200.png' %}" style="height: 150px; width: 150px;" alt="#">
-                    <h2 style="margin-top: 25px;"><b><center>Affordable
-                    </center></b></h2>
-                    <hr>
-                    <h3 style="width: 100%; font-size: medium; text-align: justify;">
-                        Get the result within 60 seconds and related advice on the next steps to take. 
-                    </h3>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="cont3">
+      <h2>Why is SkinSight AI worth using?</h2>
     </div>
-   </div>
 
+    <div id="about-2" style="background-color: #F8F0E5; padding: 50px">
+      <div class="content-box-lg">
+        <div class="container2">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="about-item text-center">
+                <img
+                  src="{% static 'img/pngtree-chip-ai-human-brain-intelligence-technology-chip-high-tech-circuit-board-png-image_6606248.png' %}"
+                  style="height: 150px; width: 150px"
+                  alt="#"
+                />
+                <h2 style="margin-top: 25px"><b><center>Smart</center></b></h2>
+                <hr />
+                <h3 style="width: 100%; font-size: medium; text-align: justify">
+                    
+                    SkinSight AI is created on the basis of artificial intelligence as a result of joint work of IT specialists and doctors. 
+                    Our app has the Same accuracy as a professional dermatologist.
+                    
+                </h3>
+              </div>
+            </div>
 
+            <div class="col-md-3">
+                <div class="about-item text-center">
+                  <img
+                    src="{% static 'img/istockphoto-945873958-612x612.jpg' %}"
+                    style="height: 150px; width: 150px"
+                    alt="#"
+                  />
+                  <h2 style="margin-top: 25px"><b><center>Simple</center></b></h2>
+                  <hr />
+                  <h3 style="width: 100%; font-size: medium; text-align: justify">
+                    You bring the phone to a mole or other formation on the skin, and in 1 
+                    minute you will know if there is any reason for concern.
 
-<!--end banner-->
-
-<!--Footer-->
-   <footer>
-       <div class="container">
-           <div class="row">
-                 <div class="col" id="company"  >
-                     <img src="{% static 'img/logo-color.png' %}" style="height: 50px; width: 50px;">
-                     <h3>
-                       SkinSight Ai is not intended to perform diagnosis, but rather to provide users the ability to image, track, and better understand their moles.
-                     </h3>
-                     
-                 </div>
-
-
-                 <div class="col" id="useful-links">
-                   <h3>Links</h3>
-                   <div class="links">
-                    <a href="{% url 'about' %}">About Us</a>
-                    <a href="{% url 'feature_page' %}">Features</a>
-                    <a href="">Artificial Intelligence</a>
-                      <a href="{% url 'contact' %}">Contact Us</a>
-                      <a href="{% url 'register_page' %}">Register</a>
-                <a href="{% url 't&c_page' %}">T&C</a>
-
-                      <a href="">FAQ</a>
-                   </div>
+                  </h3>
                 </div>
+              </div>
 
-                <div class="col" id="company">
-                   <h3>
-                       If you have any question about our AI system - contact with us through email:
-                   </h3>
-                   <h5>support@skinsight-ai.com
-                   </h5>
-                   <div class="social">
-                       <a href="#"><i class="fab fa-facebook"></i></a>
-                       <a href="#"><i class="fab fa-instagram"></i></a>
-                       <a href="#"><i class="fab fa-youtube"></i></a>
-                       <a href="#"><i class="fab fa-twitter"></i></a>
-                       <a href="#"><i class="fab fa-linkedin"></i></a>
-                     </div>
-                   
-               </div>
-           
-           </div>
+            <div class="col-md-3">
+              <div class="about-item text-center">
+                <img
+                  src="{% static 'img/4198308.png' %}"
+                  style="height: 150px; width: 150px"
+                  alt="#"
+                />
+                <h2 style="margin-top: 25px">
+                  <b><center>Accessible</center></b>
+                </h2>
+                <hr />
+                <h3 style="width: 100%; font-size: medium; text-align: justify">                   
+                    SkinSight AI is available anytime, anywhere. Keep your health in check at your fingertips even when you are on the go.
+                    
+                </h3>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="about-item text-center">
+                <img
+                  src="{% static 'img/3203331-200.png' %}"
+                  style="height: 150px; width: 150px"
+                  alt="#"
+                />
+                <h2 style="margin-top: 25px">
+                  <b><center>Affordable</center></b>
+                </h2>
+                <hr />
+                <h3 style="width: 100%; font-size: medium; text-align: justify">
+                    
+                    SkinSight AI's leading image analytics features come at an unbeatable price, fit for any request or budget. 
+                    Flexible pricing plans and customizable bundles will save your practice both time and money.
+                    
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-           <div class="row">
-                 <div class="form">
-                   <form action="">
-                       <input type="text" placeholder="Email here...">
-                       <button><i class="fa fa-paper-plane"></i></button>
-                   </form>
-                 </div>
-           </div>
+    <!--end banner-->
 
-       </div>
+    <!--Footer-->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col" id="company">
+            <img
+              src="{% static 'img/logo-color.png' %}"
+              style="height: 50px; width: 50px"
+            />
+            <h3>
+              SkinSight Ai is not intended to perform diagnosis, but rather to
+              provide users the ability to image, track, and better understand
+              their moles.
+            </h3>
+          </div>
+
+          <div class="col" id="useful-links">
+            <h3>Links</h3>
+            <div class="links">
+              <a href="{% url 'about' %}">About Us</a>
+              <a href="{% url 'feature_page' %}">Features</a>
+              <a href="">Artificial Intelligence</a>
+              <a href="{% url 'contact' %}">Contact Us</a>
+              <a href="{% url 'register_page' %}">Register</a>
+              <a href="{% url 't&c_page' %}">T&C</a>
+
+              <a href="">FAQ</a>
+            </div>
+          </div>
+
+          <div class="col" id="company">
+            <h3>
+              If you have any question about our AI system - contact with us
+              through email:
+            </h3>
+            <h5>support@skinsight-ai.com</h5>
+            <div class="social">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form">
+            <form action="">
+              <input type="text" placeholder="Email here..." />
+              <button><i class="fa fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
     </footer>
-<b style="font-style: italic; color: red; padding: 20px 0 20px 0;"><center>SkinSight AI | All Rights Reserved. Copyright © 2023
-</center></b>
+    <b style="font-style: italic; color: red; padding: 20px 0 20px 0"
+      ><center>SkinSight AI | All Rights Reserved. Copyright © 2023</center></b
+    >
 
     <!-- Include Bootstrap JS (CDN) and jQuery (required for Bootstrap) -->
 
-    <script type="text/javascript"> 
-        window.addEventListener("scroll", function(){
-            var navbar = document.querySelector("navbar"); 
-            navbar.classList.toggle("sticky", window.scrolly > 0)
-    }) 
-    </script>
+    <!-- <script type="text/javascript">
+      window.addEventListener("scroll", function () {
+        var navbar = document.querySelector("navbar");
+        navbar.classList.toggle("sticky", window.scrolly > 0);
+      });
+    </script> -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+  </body>
 </html>
