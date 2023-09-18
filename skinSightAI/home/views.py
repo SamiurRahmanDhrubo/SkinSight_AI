@@ -14,30 +14,35 @@ def user_profile(request):
 def features(request):
     return render(request, 'features.html')
 
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
 
-def login(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            # Replace 'home' with the URL name of your home page
-            return redirect('home')
+def custom_login(request):
+    if not request.user.is_authenticated:  
+        if request.method == 'POST':
+            username = request.POST['username']
+            password = request.POST['password']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                # Replace 'about' with the URL name of your about page
+                return redirect('about')
+            else:
+                error_message = "Invalid username or password."
         else:
-            error_message = "Invalid username or password."
+            error_message = ""
+
+        return render(request, 'login.html', {'error_message': error_message})
     else:
-        error_message = ""
+        return redirect('/')
 
-    return render(request, 'login.html', {'error_message': error_message})
-
-# accounts/views.py
 
 
 def register(request):
     if not request.user.is_authenticated:
         if request.method == 'POST':
             full_name = request.POST['full_name']
+            username = request.POST['username']
             phone_number = request.POST['phone_number']
             email = request.POST['email']
             password = request.POST['password']
@@ -52,16 +57,23 @@ def register(request):
                 messages.error(request, "Email already in use.")
                 return render(request, 'register.html')
 
+            # Check if username is already in use
+            if User.objects.filter(username=username).exists():
+                messages.error(request, "Username already in use.")
+                return render(request, 'register.html')
+
             user = User.objects.create_user(
-                username=email, email=email, password=password)
+                username=username, email=email, password=password)
             user.first_name = full_name
             user.save()
+
+            # Add a success message
+            messages.success(request, "Registration Successful")
 
             return redirect('/login')
         return render(request, "register.html")
     else:
         return redirect('/')
-
 
 def contact(request):
     return render(request, 'contact.html')
