@@ -127,63 +127,6 @@ body {
   font-size: 2.5rem;
 }
 
-.about-item{
-    margin-bottom: 20px;
-    margin-top: 20px;
-    margin: 20px 20px 20px 20px;
-
-    background-color: rgb(238, 224, 227);
-    padding: 4% 4%;
-    box-shadow: 0 0 9px rgba(0,0,0.6);
-    text-align: justify;
-}
-
-.about-item i{
-    font-size: 40px;
-    margin: 0;
-}
-
-.about-item h2{
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: red;
-    
-
-}
-
-.about-item hr{
-    width: 46px;
-    height: 3px;
-    background-color: #5fbff9;
-    margin: 0 100 40 100;
-    border: none;
-    transition: .5s;
-}
-.about-item hr:hover:after{
-    width: 100%;
-}
-
-.about-item:hover{
-    background-color: #313866;
-}
-.about-item:hover i,
-.about-item:hover h2,
-.about-item:hover h3{
-    color: #fff;
-}
-.about-item:hover hr{
-    background-color: #fff;
-}
-
-.about-item:hover i{
-    transform: translateY(-20px);
-}
-.about-item:hover i,
-.about-item:hover h2,
-.about-item:hover hr{
-    transition: all 400ms ease-in-out;
-}
-
 .accordion {
   width: 90%;
   max-width: 1000px;
