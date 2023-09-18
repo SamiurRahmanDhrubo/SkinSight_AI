@@ -1,0 +1,191 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
+    <!-- Include Bootstrap CSS (CDN) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="banner" style=" background-image: url('{%static 'img/iStock-1089085928.webp'%}');">
+       <nav> 
+        <div class="navbar">
+            <img src="{% static 'img/logo-color.png' %}" class="logo">
+            
+            <ul>
+                <li><a href="{% url 'landing' %}">Home</a></li>
+                <li><a href="{% url 'feature_page' %}">Features</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                <li><a href="{% url 't&c_page' %}">T&C</a></li> 
+
+                <li><a href="{% url 'faq_page' %}">FAQ</a></li> 
+                <li><a href="">Artificial Intelligence</a></li>
+                
+                <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+            </ul>
+            
+        </div>
+    </nav>
+        <div class="content">
+            <h1>Frequently Asked Questions </h1>
+            <p>Answers to Your Common Questions.</p> 
+            <!-- <div>
+            <a href="{% url 'login_page' %}"><button type="button"><span></span>Log In</button> </a>
+            <a href="{% url 'register_page' %}"><button type="button"><span></span>Register </button></a>
+            </div> -->
+            <p style="font-size:xx-small; color: black;">* The scan result is not a diagnosis. To obtain an accurate diagnosis and a recommendation for treatment - consult your doctor. </p>
+        </div>
+
+    </div>
+    <!-- Header -->
+
+    <div class="acc">
+
+        <h1>FAQ</h1>
+        <div class="row" style="width: 100%;">
+
+          <div class="col-md-5">
+            <div class="about-item text-center">
+              <img
+                src="{% static 'img/mission-icon-6.jpg' %}" style="height: 150px; width: 150px" alt="#"/>
+              
+            </div>
+          </div>
+
+        <div class="accordion col-md-5">
+
+            
+
+            <div class="accordion-item" id="acc1">
+              <div class="accordion-item-header">
+                Our Mission
+          
+              </div>
+              <div class="accordion-item-body" id="acc2">
+                <div class="accordion-item-body-content">
+                  Our mission is to empower individuals with the knowledge they need to take control of their skin health. 
+                  We're committed to breaking down the barriers that often prevent people from seeking timely dermatological insights. 
+                  Through the synergy of cutting-edge artificial intelligence and medical expertise, we aim to democratize skin health 
+                  information and redefine the way people interact with their own bodies. 
+
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+  
+  
+</div>
+
+
+<div class="row" style="width: 100%;">
+
+
+        <div class="accordion col-md-5">
+
+            
+
+            <div class="accordion-item" id="acc1">
+              <div class="accordion-item-header">
+                Our Vision
+          
+              </div>
+              <div class="accordion-item-body" id="acc2">
+                <div class="accordion-item-body-content">
+                  Accessible Healthcare: Anyone, anywhere, can access reliable skin health information instantly. 
+                  No more waiting for appointments or navigating through overwhelming search results. Early Intervention: accompanied by stigma. 
+                  We aspire to create an environment where seeking information about skin health is normalized, 
+                  fostering understanding and empathy. Our platform's reach knows no bounds. From urban centers to remote villages, 
+                  SkinSight AI aims to be a universal guide for skin health. SkinSight AI is not a replacement for medical professionals, 
+                  but a companion. We strive to complement the expertise of dermatologists and healthcare providers, fostering collaboration 
+                  for the benefit of all.
+ 
+
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-5">
+            <div class="about-item text-center">
+              <img
+                src="{% static 'img/272-2725252_vision-and-mission-icon-png-mission-and-vision.png' %}" style="height: 150px; width: 150px" alt="#"/>
+              
+              
+            </div>
+          </div>
+  
+  
+</div>
+
+    </div>
+    
+
+<!--Footer-->
+<footer>
+    <div class="container">
+        <div class="row">
+              <div class="col" id="company"  >
+                  <img src="{% static 'img/logo-color.png' %}" style="height: 50px; width: 50px;">
+                  <h3>
+                    SkinSight Ai is not intended to perform diagnosis, but rather to provide users the ability to image, track, and better understand their moles.
+                  </h3>
+                  
+              </div>
+
+
+              <div class="col" id="useful-links">
+                <h3>Links</h3>
+                <div class="links">
+                 <a href="{% url 'about' %}">About Us</a>
+                 <a href="{% url 'feature_page' %}">Features</a>
+                 <a href="">Artificial Intelligence</a>
+                   <a href="{% url 'contact' %}">Contact Us</a>
+                   <a href="{% url 'register_page' %}">Register</a>
+                <a href="{% url 't&c_page' %}">T&C</a>
+
+                   <a href="">FAQ</a>
+                </div>
+             </div>
+
+             <div class="col" id="company">
+                <h3>
+                    If you have any question about our AI system - contact with us through email:
+                </h3>
+                <h5>support@skinsight-ai.com
+                </h5>
+                <div class="social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                  </div>
+                
+            </div>
+        
+        </div>
+
+        <div class="row">
+              <div class="form">
+                <form action="">
+                    <input type="text" placeholder="Email here...">
+                    <button><i class="fa fa-paper-plane"></i></button>
+                </form>
+              </div>
+        </div>
+
+    </div>
+ </footer>
+<b style="font-style: italic; color: red; padding: 20px 0 20px 0;"><center>SkinSight AI | All Rights Reserved. Copyright © 2023
+</center></b>
+<script src="{% static 'js/faq.js' %}"></script>
+</body>
+</html>
