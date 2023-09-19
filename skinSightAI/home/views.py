@@ -4,14 +4,12 @@ from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password, check_password
 from django.contrib import messages
 from django.contrib.auth import logout
+from .models import UserProfile
 
 
 def landing(request):
     return render(request, 'landing.html')
-
-def user_profile(request):
-    return render(request, 'profile_page.html')    
-
+   
 
 def features(request):
     return render(request, 'features.html')
@@ -61,6 +59,11 @@ def register(request):
             user.first_name = full_name
             user.save()
 
+            # Create and save user profile
+            user_profile = UserProfile(
+                user=user, full_name=full_name, phone_number=phone_number)
+            user_profile.save()
+
             return redirect('/login')
         return render(request, "register.html")
     else:
@@ -82,3 +85,11 @@ def faq(request):
 
 def term(request):
     return render(request, 'terms.html')
+
+
+def profile(request):
+    if request.user.is_authenticated:
+        user_profile = UserProfile.objects.get(user=request.user)
+        return render(request, 'profile_page.html', {'user_profile': user_profile})
+    else:
+        return redirect('/login')
