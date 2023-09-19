@@ -92,6 +92,9 @@ def faq(request):
 def term(request):
     return render(request, 'terms.html')
 
+def scan_page(request):
+    return render(request, 'scan.html')
+
 
 def profile(request):
     if request.user.is_authenticated:

@@ -32,7 +32,7 @@ urlpatterns = [
     path('ai/', home.views.ai, name='artificial_intelligence'),
     path('profile/', home.views.profile, name='profile_page'),
     path('logout/', home.views.logout_view, name='logout'),
-   
+    path('scan/', home.views.scan_page, name='scan_page'),
 
 
 ]
