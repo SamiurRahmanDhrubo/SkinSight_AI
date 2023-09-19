@@ -54,9 +54,9 @@ def register(request):
                 messages.error(request, "Email already in use.")
                 return render(request, 'register.html')
 
-            user = User.objects.create_user(
-                username=email, email=email, password=password)
+            user = User.objects.create_user(username=email, email=email, password=password)
             user.first_name = full_name
+            user.last_name=phone_number
             user.save()
 
             # Create and save user profile

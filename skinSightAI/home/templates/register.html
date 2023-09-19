@@ -68,7 +68,32 @@ button {
 button:hover {
     background-color: #74db71;
 }
+.modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
 
+        .modal-content {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .modal p {
+            margin: 0;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -78,6 +103,8 @@ button:hover {
             <h2>Register</h2>
             <label for="full_name">Full Name:</label>
             <input type="text" id="full_name" name="full_name" required>
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" required>
             <label for="phone_number">Phone Number:</label>
             <input type="text" id="phone_number" name="phone_number" required>
             <label for="email">Email:</label>
@@ -89,5 +116,56 @@ button:hover {
             <button type="submit">Register</button>
         </form>
     </div>
+
+    <div id="registration-success" class="modal">
+        <div class="modal-content">
+            <p>Registration Successful</p>
+            <button id="ok-button">OK</button>
+        </div>
+    </div>
+
+    <div id="registration-failure" class="modal">
+        <div class="modal-content">
+            <p>User Already Exist</p>
+            <button id="ok-button-failure">OK</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Function to show the registration success modal
+        function showSuccessModal() {
+            $("#registration-success").css("display", "block");
+        }
+
+        // Function to show the registration failure modal
+        function showFailureModal() {
+            $("#registration-failure").css("display", "block");
+        }
+
+        // Close the modals when OK button is clicked
+        $("#ok-button").click(function () {
+            $("#registration-success").css("display", "none");
+            window.location.href = "/login"; // Redirect to the login page
+        });
+
+        $("#ok-button-failure").click(function () {
+            $("#registration-failure").css("display", "none");
+        });
+    </script>
+
+    {% if messages %}
+    {% for message in messages %}
+        <script>
+            $(document).ready(function () {
+                showFailureModal();
+            });
+        </script>
+    {% endfor %}
+    {% endif %}
+
+       
+
+
 </body>
 </html>
