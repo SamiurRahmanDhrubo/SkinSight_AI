@@ -8,7 +8,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{% static 'css/landing.css' %}"
+      href="{% static 'css/home.css' %}"
     />
     <!-- Include Bootstrap CSS (CDN) -->
     <link
@@ -30,7 +30,7 @@
           <img src="{% static 'img/logo-color.png' %}" class="logo" />
 
           <ul>
-            <li><a href="{% url 'landing' %}">Home</a></li>
+            <li><a href="{% url 'home_page' %}">Home</a></li>
             <li><a href="{% url 'feature_page' %}">Features</a></li>
             <li><a href="{% url 'about' %}">About Us</a></li>
             <li><a href="{% url 'contact' %}">Contact Us</a></li>
@@ -53,13 +53,7 @@
           Check your skin on the smartphone and get instant results within 1
           minute.
         </p>
-        <div>
-          <a href="{% url 'login_page' %}"
-            ><button type="button"><span></span>Log In</button>
-          </a>
-          <a href="{% url 'register_page' %}"
-            ><button type="button"><span></span>Register</button></a>
-        </div>
+        
         <p style="font-size: xx-small; color: black">
           * The scan result is not a diagnosis. To obtain an accurate diagnosis
           and a recommendation for treatment - consult your doctor.

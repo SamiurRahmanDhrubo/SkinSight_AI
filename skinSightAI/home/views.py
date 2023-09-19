@@ -9,6 +9,9 @@ from .models import UserProfile
 
 def landing(request):
     return render(request, 'landing.html')
+
+def home(request):
+    return render(request, 'home.html')
    
 
 def features(request):
