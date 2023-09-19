@@ -17,6 +17,9 @@ def home(request):
 def features(request):
     return render(request, 'features.html')
 
+def logout_view(request):
+    logout(request)
+    return redirect('/')
 
 def login_v(request):
     if not request.user.is_authenticated:
@@ -27,7 +30,7 @@ def login_v(request):
             if user is not None:
                 login(request, user)
                 # Replace 'home' with the URL name of your home page
-                return redirect('about')
+                return redirect('home_page')
             else:
                 error_message = "Invalid username or password."
         else:

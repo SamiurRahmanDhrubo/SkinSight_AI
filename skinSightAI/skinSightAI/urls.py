@@ -31,7 +31,8 @@ urlpatterns = [
     path('about/', home.views.about, name='about'),
     path('ai/', home.views.ai, name='artificial_intelligence'),
     path('profile/', home.views.profile, name='profile_page'),
-    path('logout/', LogoutView.as_view(), name='logout'),
+    path('logout/', home.views.logout_view, name='logout'),
+   
 
 
 ]
