@@ -50,21 +50,24 @@
     </div>
  
 
+  
+
     {% block content %}
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
         <h2>Upload an Image</h2>
         <form method="post" enctype="multipart/form-data" style="display: flex; flex-direction: column; align-items: center;">
             {% csrf_token %}
             <label for="{{ form.image.id_for_label }}">Choose an Image:</label>
-            {{ form.image }}
             <img src="{% static 'img/upload.png' %}" alt="Upload" style="width: 100px; height: 100px; margin: 10px;">
-            <label class="custom-file-upload" style="cursor: pointer;">
-                <input type="file" accept="image/*" style="display: none;" name="{{ form.image.name }}" id="{{ form.image.id_for_label }}">
-                <span style="background-color: green; color: white; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Upload</span>
-            </label>
+            {{ form.image }}
+            <div style="margin-top: 20px;">
+                <button type="submit" style="background-color: green; color: white; padding: 12px 30px; border: none; cursor: pointer;">Upload</button>
+            </div>
         </form>
     </div>
     {% endblock %}
+    
+
     
 
 </div>

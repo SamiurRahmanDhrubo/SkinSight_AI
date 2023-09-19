@@ -5,6 +5,7 @@ from django.contrib.auth.hashers import make_password, check_password
 from django.contrib import messages
 from django.contrib.auth import logout
 from .models import UserProfile
+from .forms import UploadImageForm
 
 
 def landing(request):
@@ -93,7 +94,19 @@ def term(request):
     return render(request, 'terms.html')
 
 def scan_page(request):
-    return render(request, 'scan.html')
+    if request.method == 'POST':
+        form = UploadImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()  # This will save the uploaded image to your 'uploads/' directory and create a database record.
+            # Now you can perform image analysis on the stored image.
+
+            # Redirect or render a success page.
+            return redirect('success_page')  # Replace 'success_page' with the actual URL name of your success page.
+    else:
+        form = UploadImageForm()
+
+    return render(request, 'scan.html', {'form': form})
+    
 
 
 def profile(request):
