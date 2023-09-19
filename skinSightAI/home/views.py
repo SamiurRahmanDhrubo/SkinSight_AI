@@ -30,7 +30,6 @@ def login_v(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                # Replace 'home' with the URL name of your home page
                 return redirect('home_page')
             else:
                 error_message = "Invalid username or password."
@@ -97,16 +96,15 @@ def scan_page(request):
     if request.method == 'POST':
         form = UploadImageForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()  # This will save the uploaded image to your 'uploads/' directory and create a database record.
-            # Now you can perform image analysis on the stored image.
-
-            # Redirect or render a success page.
-            return redirect('success_page')  # Replace 'success_page' with the actual URL name of your success page.
+            form.save() 
+            return redirect('result_page')  
     else:
         form = UploadImageForm()
 
     return render(request, 'scan.html', {'form': form})
     
+def result_view(request):
+    return render(request, 'result.html')
 
 
 def profile(request):
