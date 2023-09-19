@@ -15,22 +15,24 @@ def features(request):
     return render(request, 'features.html')
 
 
-def login(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            # Replace 'home' with the URL name of your home page
-            return redirect('home')
+def login_v(request):
+    if not request.user.is_authenticated:
+        if request.method == 'POST':
+            username = request.POST['username']
+            password = request.POST['password']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                # Replace 'home' with the URL name of your home page
+                return redirect('about')
+            else:
+                error_message = "Invalid username or password."
         else:
-            error_message = "Invalid username or password."
+            error_message = ""
+
+        return render(request, 'login.html', {'error_message': error_message})
     else:
-        error_message = ""
-
-    return render(request, 'login.html', {'error_message': error_message})
-
+        return redirect('/')
 # accounts/views.py
 
 
