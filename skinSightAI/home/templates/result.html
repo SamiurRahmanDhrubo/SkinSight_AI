@@ -34,6 +34,7 @@
     </nav>
         <div class="content">
             <h1>Your result is ready </h1>
+            
             <p style="font-size:xx-small; color: rgb(10, 8, 8);"><h6>The scan result is not a diagnosis. To obtain an accurate diagnosis and a recommendation for treatment - consult your doctor. </h3></p>
         </div>
 
@@ -43,6 +44,16 @@
     <div class="acc">
 
         <h1>Result</h1>
+        
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 10vh;">
+            {% if image_instance %}
+            <img src="{{ image_instance.image.url }}" alt="Uploaded Image" style="max-width: 100%;">
+            <h3> Classification:</h3>
+            <p>{{ prediction }}</p>
+            {% endif %}
+        </div>
+        
+
     </div>
     <div class="col-md-4">
         <div class="about-item text-center">
