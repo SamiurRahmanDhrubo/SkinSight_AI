@@ -4,8 +4,11 @@ from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password, check_password
 from django.contrib import messages
 from django.contrib.auth import logout
-from .models import UserProfile
+from .models import UserProfile, UploadedImage
 from .forms import UploadImageForm
+from .models import UploadedImage
+from .image_classifier import preprocess_and_predict  # Import the preprocess_and_predict function
+
 
 
 def landing(request):
@@ -92,19 +95,36 @@ def faq(request):
 def term(request):
     return render(request, 'terms.html')
 
+
+from .image_classifier import preprocess_and_predict  # Import the preprocess_and_predict function
+
+from .models import UploadedImage
+
 def scan_page(request):
     if request.method == 'POST':
         form = UploadImageForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save() 
-            return redirect('result_page')  
+            # Save the uploaded image to the database
+            image_instance = form.save()
+
+            # Use preprocess_and_predict to get the prediction
+            prediction = preprocess_and_predict(image_instance.image)
+
+            return render(request, 'result.html', {'image_instance': image_instance, 'prediction': prediction})
     else:
         form = UploadImageForm()
 
     return render(request, 'scan.html', {'form': form})
+
+
+
+
+
     
+
 def result_view(request):
-    return render(request, 'result.html')
+        return render(request, 'result.html')
+
 
 
 def profile(request):
