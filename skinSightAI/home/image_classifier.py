@@ -4,7 +4,7 @@ import numpy as np
 
 
 # Define the path to your pre-trained model
-model_path = "C:\\Users\\user\\Downloads\\skin_disease_classifier_svm.pkl"  # Update with the correct path
+model_path = "D:\\7th Semester\\CSE 410 (Software Development Lab)\\drive-download-20231001T073826Z-001\\skin_disease_classifier_svm.pkl"  # Update with the correct path
 
 # Load the pre-trained model
 model = joblib.load(model_path)
