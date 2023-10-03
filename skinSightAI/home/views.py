@@ -48,33 +48,44 @@ def login_v(request):
 def register(request):
     if not request.user.is_authenticated:
         if request.method == 'POST':
-            full_name = request.POST['full_name']
-            phone_number = request.POST['phone_number']
-            email = request.POST['email']
-            password = request.POST['password']
-            confirm_password = request.POST['confirm_password']
+            full_name = request.POST.get('full_name')
+            username = request.POST.get('username')
+            phone_number = request.POST.get('phone_number')
+            email = request.POST.get('email')
+            password = request.POST.get('password')
+            confirm_password = request.POST.get('confirm_password')
+
+            if not all([full_name, username, phone_number, email, password, confirm_password]):
+                messages.error(request, "All fields are required.")
+                return render(request, 'register.html')
 
             if password != confirm_password:
                 messages.error(request, "Passwords do not match.")
                 return render(request, 'register.html')
 
-            # Check if email is already in use
+            # Check if a user with the same username already exists
+            if User.objects.filter(username=username).exists():
+                messages.error(request, "Username already in use.")
+                return render(request, 'register.html')
+
+            # Check if a user with the same email already exists
             if User.objects.filter(email=email).exists():
                 messages.error(request, "Email already in use.")
                 return render(request, 'register.html')
 
-            user = User.objects.create_user(username=email, email=email, password=password)
+            # Create a new user with a unique username and email
+            user = User.objects.create_user(username=username, email=email, password=password)
             user.first_name = full_name
-            user.last_name=phone_number
             user.save()
 
             # Create and save user profile
-            user_profile = UserProfile(
-                user=user, full_name=full_name, phone_number=phone_number)
+            user_profile = UserProfile(user=user, full_name=full_name, phone_number=phone_number)
             user_profile.save()
 
             return redirect('/login')
+
         return render(request, "register.html")
+
     else:
         return redirect('/')
 
@@ -127,12 +138,9 @@ def result_view(request):
 
 
 
-# def profile(request):
-#     if request.user.is_authenticated:
-#         user_profile = UserProfile.objects.get(user=request.user)
-#         return render(request, 'profile_page.html', {'user_profile': user_profile})
-#     else:
-#         return redirect('/login')
-
 def profile(request):
-    return render(request, 'profile_page.html')
+    if request.user.is_authenticated:
+        user_profile = UserProfile.objects.get(user=request.user)
+        return render(request, 'profile_page.html', {'user_profile': user_profile})
+    else:
+        return redirect('/login')
