@@ -85,7 +85,7 @@
                 <button type="submit">Login</button>
             </form>
             <dl style="background-color: #20B2AA">
-                <dt style="float:left;padding-left:70px"> <a href="#" style="color:black; "><h3>Forgot Password?</h3> </a> </dt>
+                <dt style="float:left;padding-left:70px"> <a href="{% url 'password_reset' %}" style="color:black; "><h3>Forgot Password?</h3> </a> </dt>
                 <dt style="float:left;padding-left:70px"><h3>Not a user?  <a href="{% url 'register_page' %}" style=" color:black;">Sign Up</h3>  </a> </dt>
             </dl>
         {% endif %}
