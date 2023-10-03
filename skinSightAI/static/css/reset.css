@@ -1,19 +1,4 @@
-{% load crispy_forms_tags %} 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="asfi" />
-    <meta name="description" content="Reset Password Page" />
-    <meta name="keywords" content="forgot password page, basic html and css" />
-    <title>Reset Password</title>
-    <script
-      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
-      type="module"
-    ></script>
-    <style>
-      * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -143,40 +128,3 @@ body {
   background-color: #0056b3;
   transform: scale(1.05);
 }
-
-    </style>
-  </head>
-  <body>
-    <div class="top-left-corner">
-      <h2>SkinSight AI</h2>
-    </div>
-    <div class="animation-container">
-      <dotlottie-player
-        src="https://lottie.host/f20028cc-1423-43c0-8c9e-328fb2398ffa/ej03Wll3Y6.json"
-        background="transparent"
-        speed="1"
-        style="width: 400px; height: 400px"
-        loop
-        autoplay
-      ></dotlottie-player>
-    <div class="container">
-      <div class="card-container">
-        <div class="row">
-          <h1>Reset Your Password</h1>
-          <p>Provide the email address associated with your account.</p>
-          <form action="" method="post">
-            {% csrf_token %}
-            <div class="form-group">{{ form|crispy }}</div>
-            <br />
-            <input
-              type="submit"
-              value="Reset Password"
-              class="btn btn-primary"
-            />
-          </form>
-          <br /><br />
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
