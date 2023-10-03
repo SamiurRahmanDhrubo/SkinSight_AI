@@ -127,9 +127,12 @@ def result_view(request):
 
 
 
+# def profile(request):
+#     if request.user.is_authenticated:
+#         user_profile = UserProfile.objects.get(user=request.user)
+#         return render(request, 'profile_page.html', {'user_profile': user_profile})
+#     else:
+#         return redirect('/login')
+
 def profile(request):
-    if request.user.is_authenticated:
-        user_profile = UserProfile.objects.get(user=request.user)
-        return render(request, 'profile_page.html', {'user_profile': user_profile})
-    else:
-        return redirect('/login')
+    return render(request, 'profile_page.html')
