@@ -19,6 +19,49 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
     />
+    <style>
+      /* Style for the notification button container */
+      .notification-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 15px;
+      }
+
+      /* Style for the notification button */
+      .notification-button {
+        background-color: rgb(71, 178, 228);
+        color: white;
+        padding: 1% 2% 1% 2%;
+        font-size: 12px;
+        border: none;
+        cursor: pointer;
+      }
+
+      /* Style for the notification dropdown */
+      .notification-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        display: none;
+        background-color: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        min-width: 200px;
+        padding: 10px;
+        border-radius: 4px;
+        z-index: 1;
+      }
+
+      .notification-dropdown p {
+        margin: 0;
+        padding: 8px 0;
+      }
+
+      /* Show the notification dropdown when active */
+      .notification-active .notification-dropdown {
+        display: block;
+      }
+    </style>
   </head>
   <body>
     <div
@@ -41,10 +84,15 @@
 
             <li><a href="{% url 'artificial_intelligence' %}">Artificial Intelligence</a></li>
             <li><a href="{% url 'logout' %}">Logout</a></li> 
-            
 
-            <li>
-              <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <li class="notification-container">
+              <button class="notification-button fas fa-bell" onclick="toggleNotification()"></button>
+              <div class="notification-dropdown">
+                <!-- Notification items will go here -->
+                <p>You have a new notification!</p>
+                <p>Another notification.</p>
+                <p>One more notification.</p>
+              </div>
             </li>
           </ul>
         </div>
@@ -66,12 +114,13 @@
     <!-- Your website content goes here -->
 
     <!--    banner-->
-    <div class="cont3" style="display: flex; align-items: center; margin-bottom: 0;">
-      <h2 style="flex: 1; margin: 0; padding-right: 20px;">Scan your skin now</h2>
-      <button type="button" style="background-color: rgb(71, 178, 228); color: white; padding: 20px; border: none; cursor: pointer;" onclick="window.location.href='/scan'">Go to Scan Page</button>
+    <div class="cont3" style="display: flex; justify-content: center; align-items: center; margin-bottom: 0;">
+      <h2 style="margin: 0; ">Scan your skin now</h2>
     </div>
-    
   
+    <div class="cont3" style="display: flex; align-items: center; margin-bottom: 0;"> 
+      <button type="button" style="flex: 1; background-color: rgb(71, 178, 228); color: white; padding: 1% 2% 1% 2%; font-size: 12px; border: none; cursor: pointer;" onclick="window.location.href='/scan'"><h3>Scan Now</h3></button>
+    </div>
   
     <div id="about-2" style="background-color: white; padding: 50px">
       <div class="content-box-lg">
@@ -187,7 +236,7 @@
         </div>
       </div>
     </div>
-
+    
     <!--end banner-->
 
     <!--Footer-->
@@ -251,15 +300,16 @@
     >
 
     <!-- Include Bootstrap JS (CDN) and jQuery (required for Bootstrap) -->
-
-    <script type="text/javascript">
-      window.addEventListener("scroll", function () {
-        var navbar = document.querySelector("navbar");
-        navbar.classList.toggle("sticky", window.scrolly > 0);
-      });
-    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      // JavaScript to toggle notification dropdown
+      function toggleNotification() {
+        var notificationDropdown = document.querySelector('.notification-dropdown');
+        notificationDropdown.classList.toggle('notification-active');
+      }
+    </script>
   </body>
 </html>
