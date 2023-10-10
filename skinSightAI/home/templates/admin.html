@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkinSight AI</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/admin.css' %}"
+    />
+    <!-- Include Bootstrap CSS (CDN) -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div
+      class="banner">
+      <nav>
+        <div class="navbar">
+          <img src="{% static 'img/logo-color.png' %}" class="logo" />
+
+          <ul>
+             
+
+            <li><a href="{% url 'logout' %}">Logout</a></li>             
+
+            <li>
+              <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      
+    </div>
+
+    <!-- Your website content goes here -->
+
+    <!--    banner-->
+
+    <div class="container">
+        <h1>Payment Requests</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Phone Number</th>
+                    <th>Payment Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for payment_request in payment_requests %}
+                <tr>
+                    <td>{{ payment_request.full_name }}</td>
+                    <td>{{ payment_request.phone_number }}</td>
+                    <td id="status_{{ payment_request.id }}" class="status-toggle" data-id="{{ payment_request.id }}">
+                        {% if payment_request.payment_status %}
+                            <span style="color: green;">Done</span>
+                        {% else %}
+                            <span style="color: red; cursor: pointer;">Pending</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!--end banner-->
+
+    <!--Footer-->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col" id="company">
+            <img
+              src="{% static 'img/logo-color.png' %}"
+              style="height: 50px; width: 50px"
+            />
+            <h3>
+              SkinSight Ai is not intended to perform diagnosis, but rather to
+              provide users the ability to image, track, and better understand
+              their moles.
+            </h3>
+          </div>
+
+          <div class="col" id="useful-links">
+            <h3>Links</h3>
+            <div class="links">
+              <a href="{% url 'about' %}">About Us</a>
+              <a href="{% url 'feature_page' %}">Features</a>
+              <a href="">Artificial Intelligence</a>
+              <a href="{% url 'contact' %}">Contact Us</a>
+              <a href="{% url 'register_page' %}">Register</a>
+              <a href="{% url 't&c_page' %}">T&C</a>
+
+              <a href="">FAQ</a>
+            </div>
+          </div>
+
+          <div class="col" id="company">
+            <h3>
+              If you have any question about our AI system - contact with us
+              through email:
+            </h3>
+            <h5>support@skinsight-ai.com</h5>
+            <div class="social">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form">
+            <form action="">
+              <input type="text" placeholder="Email here..." />
+              <button><i class="fa fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <b style="font-style: italic; color: red; padding: 20px 0 20px 0"
+      ><center>SkinSight AI | All Rights Reserved. Copyright © 2023</center></b
+    >
+
+    <!-- Include Bootstrap JS (CDN) and jQuery (required for Bootstrap) -->
+
+    <script>
+        // Add event listeners to the "Pending" status cells
+        const statusCells = document.querySelectorAll('.status-toggle');
+        statusCells.forEach(cell => {
+            cell.addEventListener('click', togglePaymentStatus);
+        });
+    
+        function togglePaymentStatus(event) {
+            const requestId = event.target.dataset.id;
+            const statusCell = document.getElementById(`status_${requestId}`);
+            
+            // Send an AJAX request to toggle the payment status
+            fetch(`/toggle_payment_status/${requestId}/`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'done') {
+                        statusCell.innerHTML = '<span style="color: green;">Done</span>';
+                    } else {
+                        statusCell.innerHTML = '<span style="color: red; cursor: pointer;">Pending</span>';
+                    }
+                });
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

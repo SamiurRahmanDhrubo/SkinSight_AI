@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+        <style>
+      body {
+        font-family: Arial, sans-serif;
+        
+        background-color: #f3f3f3;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        background-color: rgb(202, 202, 226);
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 300px;
+        opacity: 0.9;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      input {
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        background-color: #62bb5f;
+        color: white;
+        padding: 1%;
+        width: 50%;
+        margin: 8px 100px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #a1d35f;
+      }
+    </style>
+    
+</head>
+<body>
+    <div class="container" style="background-image: url('{%static 'img/pay.webp'%}')">
+        <h2>Please Make your Payment to this Number 017556-68899</h2>
+        <h3 style="color: pink; text-align: center;">Bkash</h3>
+        <br>
+        <h3>Plsease enter your payment details.</h3>
+        <form id="paymentForm" method="POST">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            
+            <label for="phone_number">Phone Number:</label>
+            <input type="tel" id="phone_number" name="phone_number" required><br><br>
+            
+            
+            
+            <!-- You can also add a submit button to initiate the payment -->
+            <button type="submit">Payment Done</button>
+        </form>
+            
+    </div>
+    
+</body>
+</html>

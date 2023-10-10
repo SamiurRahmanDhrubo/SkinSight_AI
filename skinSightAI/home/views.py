@@ -8,11 +8,40 @@ from .models import UserProfile, UploadedImage
 from .forms import UploadImageForm
 from .models import UploadedImage
 from .image_classifier import preprocess_and_predict  # Import the preprocess_and_predict function
+from .models import PaymentRequest
+from django.http import JsonResponse
 
 
+def toggle_payment_status(request, request_id):
+    try:
+        payment_request = PaymentRequest.objects.get(id=request_id)
+        
+        # Toggle the payment status of PaymentRequest
+        payment_request.payment_status = not payment_request.payment_status
+        payment_request.save()
+        
+        # Retrieve the associated UserProfile
+        user_profile = UserProfile.objects.get(full_name=payment_request.full_name)
+        
+        # Toggle the payment status of UserProfile
+        user_profile.payment_status = payment_request.payment_status
+        if user_profile.payment_status == 1:
+            user_profile.value = 5
+        else:
+            user_profile.value = 0
+        user_profile.save()
+        
+        return JsonResponse({'status': 'done' if payment_request.payment_status else 'pending'})
+    except PaymentRequest.DoesNotExist:
+        return JsonResponse({'status': 'error'}, status=404)
 
 def landing(request):
     return render(request, 'landing.html')
+def admin_page(request):
+    # Retrieve all PaymentRequest records
+    payment_requests = PaymentRequest.objects.all()
+    
+    return render(request, 'admin.html', {'payment_requests': payment_requests})
 
 def home(request):
     return render(request, 'home.html')
@@ -30,15 +59,22 @@ def login_v(request):
         if request.method == 'POST':
             username = request.POST['username']
             password = request.POST['password']
-            user = authenticate(request, username=username, password=password)
-            if user is not None:
+            
+            # Check if it's an admin login
+            if username == 'Admin' and password == 'Admin':
+                user = User.objects.get(username='Admin')
                 login(request, user)
-                return redirect('home_page')
+                return redirect('admin_page')  # Redirect to the admin page
             else:
-                error_message = "Invalid username or password."
+                user = authenticate(request, username=username, password=password)
+                if user is not None:
+                    login(request, user)
+                    return redirect('home_page')  # Redirect to the home page for regular users
+                else:
+                    error_message = "Invalid username or password."
+            return render(request, 'login.html', {'error_message': error_message})
         else:
             error_message = ""
-
         return render(request, 'login.html', {'error_message': error_message})
     else:
         return redirect('/')
@@ -112,20 +148,30 @@ from .image_classifier import preprocess_and_predict  # Import the preprocess_an
 from .models import UploadedImage
 
 def scan_page(request):
-    if request.method == 'POST':
-        form = UploadImageForm(request.POST, request.FILES)
-        if form.is_valid():
-            # Save the uploaded image to the database
-            image_instance = form.save()
+    if request.user.is_authenticated:
+        user_profile = UserProfile.objects.get(user=request.user)
+        if user_profile.payment_status and user_profile.value > 0:
+            if request.method == 'POST':
+                form = UploadImageForm(request.POST, request.FILES)
+                if form.is_valid():
+                    # Save the uploaded image to the database
+                    image_instance = form.save()
 
-            # Use preprocess_and_predict to get the prediction
-            prediction = preprocess_and_predict(image_instance.image)
+                    # Use preprocess_and_predict to get the prediction
+                    prediction = preprocess_and_predict(image_instance.image)
 
-            return render(request, 'result.html', {'image_instance': image_instance, 'prediction': prediction})
+                    # Deduct one from the available scans
+                    user_profile.value -= 1
+                    user_profile.save()
+
+                    return render(request, 'result.html', {'image_instance': image_instance, 'prediction': prediction})
+            else:
+                form = UploadImageForm()
+            return render(request, 'scan.html', {'form': form})
+        else:
+            return redirect('/payment')
     else:
-        form = UploadImageForm()
-
-    return render(request, 'scan.html', {'form': form})
+        return redirect('/login')
 
 
 
@@ -136,7 +182,31 @@ def scan_page(request):
 def result_view(request):
         return render(request, 'result.html')
 
-
+def payment(request):
+    if request.method == 'POST':
+        user_profile = UserProfile.objects.get(user=request.user)
+        
+        # Verify payment status with the payment gateway (implementation dependent on the gateway used)
+        # If payment is successful, the payment gateway will send a callback/webhook
+        
+        # Check if the phone number matches the one associated with the user's profile
+        if request.POST.get('phone_number') == user_profile.phone_number:
+            # Create a new PaymentRequest record
+            payment_request = PaymentRequest(
+                full_name=request.POST.get('name'),
+                phone_number=user_profile.phone_number,
+                payment_status=False  # Set to True since payment is successful
+            )
+            payment_request.save()
+            
+            # Update the UserProfile based on PaymentRequest's payment status
+            
+            
+            return redirect('/home')  # Redirect to the home page after successful payment and phone number match
+        else:
+            return render(request, 'payment.html', {'error_message': 'Phone number does not match.'})
+    else:
+        return render(request, 'payment.html')
 
 def profile(request):
     if request.user.is_authenticated:
@@ -144,3 +214,13 @@ def profile(request):
         return render(request, 'profile_page.html', {'user_profile': user_profile})
     else:
         return redirect('/login')
+    
+
+
+# if PaymentRequest.payment_status == True:
+            #     user_profile.payment_status = True
+            #     user_profile.value = 5
+            #     user_profile.save()
+            # user_profile.payment_status = True
+            # user_profile.value = 5
+            # user_profile.save()

@@ -18,7 +18,7 @@ background-position: center;
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
-    
+    background-color: black;
     margin: auto;
     padding: 35px 0;
     display: flex;
@@ -26,8 +26,10 @@ background-position: center;
     justify-content: 10px;
 }
 .navbar:hover{
-    background-color: rgb(8, 3, 3);
-    opacity: 0.3;
+    .navbar:hover{
+        background-color: rgb(15, 61, 29);
+            opacity: 0.9;
+        }
 }
 .logo{
     width: 50px;
@@ -66,7 +68,7 @@ background-position: center;
     top: 50%;
     transform: translateY(-50%);
     text-align: center;
-    color: #fff;
+    color: black;
 }
 .content h1{
     font-size: 70px;
