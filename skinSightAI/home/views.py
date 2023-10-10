@@ -10,6 +10,7 @@ from .models import UploadedImage
 from .image_classifier import preprocess_and_predict  # Import the preprocess_and_predict function
 from .models import PaymentRequest
 from django.http import JsonResponse
+from .forms import UserProfileForm
 
 
 def toggle_payment_status(request, request_id):
@@ -209,13 +210,14 @@ def payment(request):
         return render(request, 'payment.html')
 
 def profile(request):
-    if request.user.is_authenticated:
-        user_profile = UserProfile.objects.get(user=request.user)
-        return render(request, 'profile_page.html', {'user_profile': user_profile})
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, request.FILES, instance=request.user.userprofile)
+        if form.is_valid():
+            form.save()
     else:
-        return redirect('/login')
+        form = UserProfileForm(instance=request.user.userprofile)
     
-
+    return render(request, 'profile_page.html', {'user_profile': request.user.userprofile, 'form': form})
 
 # if PaymentRequest.payment_status == True:
             #     user_profile.payment_status = True
