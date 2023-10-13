@@ -2,6 +2,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        .blue-div {
+            background-color: rgb(106, 169, 190);
+            padding: 20px;
+        }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scan</title>
@@ -46,6 +52,21 @@
     </div>
 
     {% block content %}
+    <div class="blue-div">
+        <center><h2><p>You can scan 5 times for each payment</p></h2>
+        <div id="userData">
+            <!-- Display the number of scans left here -->
+            <h3><p>Scans left: {{ user_profile.value }}</p></h3></center>
+        </div>
+    </div>
+   
+    
+    
+    
+    
+    
+    
+    
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
         <h2>Upload an Image</h2>
         <form method="post" enctype="multipart/form-data" style="display: flex; flex-direction: column; align-items: center;">

@@ -1,52 +1,44 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SkinSight AI</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'css/admin.css' %}"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
     <!-- Include Bootstrap CSS (CDN) -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <div
-      class="banner">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header content here -->
+  <div class="banner" style=" background-image: url('{% static 'img/his.jpg' %}');">
       <nav>
-        <div class="navbar">
-          <img src="{% static 'img/logo-color.png' %}" class="logo" />
-
-          <ul>
-             
-
-            <li><a href="{% url 'logout' %}">Logout</a></li>             
-
-            <li>
-              <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-            </li>
-          </ul>
-        </div>
+          <div class="navbar">
+              <img src="{% static 'img/logo-color.png' %}" class="logo">
+              <ul>
+                  <li><a href="{% url 'home_page' %}">Home</a></li>
+                  <li><a href="{% url 'feature_page' %}">Features</a></li>
+                  <li><a href="{% url 'about' %}">About Us</a></li>
+                  <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                  <li><a href="{% url 't&c_page' %}>T&C</a></li>
+                  <li><a href="{% url 'faq_page' %}">FAQ</a></li>
+                  <li><a href="{% url 'artificial_intelligence' %}">Artificial Intelligence</a></li>
+                  <li><a href="{% url 'history' %}">History</a></li>
+              </ul>
+          </div>
       </nav>
-      
-    </div>
+      <div class="content">
+          <h1>Payment History</h1>
+      </div>
+  </div>
 
-    <!-- Your website content goes here -->
+  <!-- Your website content goes here -->
+  <div>
+      <center><h1>Payment History</h1></center>
 
-    <!--    banner-->
-
-    <div class="container">
-        <h1>Payment Requests</h1>
+      <!-- Add a table to display Payment Requests -->
+      <div>
         <table class="table">
             <thead>
                 <tr>
@@ -60,11 +52,11 @@
                 <tr>
                     <td>{{ payment_request.full_name }}</td>
                     <td>{{ payment_request.phone_number }}</td>
-                    <td id="status_{{ payment_request.id }}" class="status-toggle" data-id="{{ payment_request.id }}">
+                    <td>
                         {% if payment_request.payment_status %}
                             <span style="color: green;">Done</span>
                         {% else %}
-                            <span style="color: red; cursor: pointer;">Pending</span>
+                            <span style="color: red;">Pending</span>
                         {% endif %}
                     </td>
                 </tr>
@@ -72,7 +64,10 @@
             </tbody>
         </table>
     </div>
+</div>
+    <!--    banner-->
 
+    
     <!--end banner-->
 
     <!--Footer-->

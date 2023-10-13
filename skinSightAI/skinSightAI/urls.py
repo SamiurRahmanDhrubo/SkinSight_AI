@@ -36,9 +36,11 @@ urlpatterns = [
     path('contact/', home.views.contact, name='contact'),
     path('about/', home.views.about, name='about'),
     path('ai/', home.views.ai, name='artificial_intelligence'),
+    path('history/', home.views.history, name='history'),
     path('profile/', home.views.profile, name='profile_page'),
     path('logout/', home.views.logout_view, name='logout'),
-    path('scan/', home.views.scan_page, name='scan_page'),
+    path('scan/', home.views.scan_page, name='scan_page'),\
+    path('check_payment_status/', home.views.check_payment_status, name='check_payment_status'),
     path('result/', home.views.result_view, name='result_page'),
     path('password_reset/',auth_views.PasswordResetView.as_view(
         template_name = 'password_reset.html'
@@ -52,6 +54,7 @@ urlpatterns = [
     path('password_reset_complete/',auth_views.PasswordResetCompleteView.as_view(
         template_name = 'password_reset_complete.html'
     ),name='password_reset_complete'),
+    
 
 
 ]

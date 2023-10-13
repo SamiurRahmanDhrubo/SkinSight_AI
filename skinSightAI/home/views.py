@@ -13,6 +13,14 @@ from django.http import JsonResponse
 from .forms import UserProfileForm
 
 
+def check_payment_status(request):
+    if request.user.is_authenticated:
+        user_phone_number = request.user.userprofile.phone_number
+        payment_request = PaymentRequest.objects.filter(phone_number=user_phone_number).first()
+        if payment_request and payment_request.payment_status == 1:
+            return JsonResponse({'payment_status': 1})
+    
+    return JsonResponse({'payment_status': 0})
 def toggle_payment_status(request, request_id):
     try:
         payment_request = PaymentRequest.objects.get(id=request_id)
@@ -44,12 +52,35 @@ def admin_page(request):
     
     return render(request, 'admin.html', {'payment_requests': payment_requests})
 
+    
+    return render(request, 'admin.html', {'payment_requests': payment_requests})
+
 def home(request):
     return render(request, 'home.html')
-   
+def check_payment_status(request):
+    if request.user.is_authenticated:
+        user_phone_number = request.user.userprofile.phone_number
+        payment_request = PaymentRequest.objects.filter(phone_number=user_phone_number).first()
+        if payment_request and payment_request.payment_status == 1:
+            return JsonResponse({'payment_status': 1})
+      
 
 def features(request):
     return render(request, 'features.html')
+
+
+
+def history(request):
+    if request.user.is_authenticated:
+        # Get the user's phone number
+        user_phone_number = request.user.userprofile.phone_number  # Replace 'userprofile' with your user's profile model if needed
+
+        # Query the PaymentRequest table for records with the matching phone number
+        payment_requests = PaymentRequest.objects.filter(phone_number=user_phone_number)
+
+        return render(request, 'history.html', {'payment_requests': payment_requests})
+    else:
+        return redirect('/login')
 
 def logout_view(request):
     logout(request)
@@ -165,10 +196,10 @@ def scan_page(request):
                     user_profile.value -= 1
                     user_profile.save()
 
-                    return render(request, 'result.html', {'image_instance': image_instance, 'prediction': prediction})
+                    return render(request, 'result.html', {'image_instance': image_instance, 'prediction': prediction, 'user_profile': user_profile})
             else:
                 form = UploadImageForm()
-            return render(request, 'scan.html', {'form': form})
+            return render(request, 'scan.html', {'form': form, 'user_profile': user_profile})
         else:
             return redirect('/payment')
     else:
