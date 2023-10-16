@@ -81,7 +81,8 @@
             <div class="tab-content">
               <div class="tab-pane fade active show" id="account-general">
                 <div class="card-body media align-items-center">
-                  <img src="{{ user_profile.profile_picture.url }}" alt class="d-block ui-w-80" />
+                  <img src="{% if user_profile.profile_picture %}{{ user_profile.profile_picture.url }}{% else %}{% static 'img/default-profile.jpg' %}{% endif %}" alt class="d-block ui-w-80" />
+
                   <div class="media-body ml-4">
                       <form method="post" enctype="multipart/form-data">
                           {% csrf_token %}
@@ -155,7 +156,15 @@
     
     <div class="cont3" style="display: flex; justify-content: center; align-items: center; margin-top: 5%; margin-bottom: 5%;">
       <h2 style="margin: 0; ">Make Your Payment Here</h2>
+      
+      
     </div>
+    <div class="cont3" style="display: flex; justify-content: center; align-items: center; margin-top: 5%; margin-bottom: 5%;">
+      <h3>Payment amount: 500 BDT</h3>
+      
+      
+    </div>
+    
     <div class="cont3" style="display: flex; align-items: center; margin-bottom: 0;"> 
       <button type="button"   style="flex: 1; background-color: rgb(71, 178, 228); color: white; padding: 1% 2% 1% 2%; font-size: 12px; border: none; cursor: pointer;"><a href="{% url 'payment_page' %}" style="text-decoration: none; "><h3>Pay Now</h3></a></button>
     </div>

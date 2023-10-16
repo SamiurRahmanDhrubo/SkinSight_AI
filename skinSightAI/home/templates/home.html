@@ -34,6 +34,20 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         z-index: 999;
       }
+   
+        .notification-dot {
+            position: relative;
+        }
+
+        .red-dot {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+               }
     </style>
     
   </head>
@@ -57,9 +71,17 @@
             <li><a href="{% url 'faq_page' %}">FAQ</a></li> 
 
             <li><a href="{% url 'artificial_intelligence' %}">Artificial Intelligence</a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li> 
+            
 
-            <li><a href="{% url 'history' %}">History</a></li>
+            <li>
+              <a href="{% url 'history' %}">
+                History
+                {% if has_pending_payment %}
+                  <span class="red-dot"></span>
+                {% endif %}
+              </a>
+            </li>
+            <li><a href="{% url 'logout' %}">Logout</a></li> 
                 
           </ul>
         </div>
@@ -278,18 +300,18 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script>
+    <!-- <script>
       // JavaScript to toggle notification dropdown
       function toggleNotification() {
         var notificationDropdown = document.querySelector('.notification-dropdown');
         notificationDropdown.classList.toggle('notification-active');
       }
       
-    </script>
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    // </script> -->
+    //  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   
      <!-- Add this script at the end of your HTML body -->
-<script>
+<!-- <script>
   function checkPaymentStatus() {
   $.get("/check_payment_status/", function (data) {
     console.log("Payment status:", data.payment_status); // Add this line for debugging
@@ -304,7 +326,7 @@
       }
     }
   });
-}
+} -->
 
 
   function closePopup() {
@@ -339,7 +361,20 @@
     return null;
   }
 </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function checkPaymentStatus() {
+            $.get("/check_payment_status/", function (data) {
+                if (data.payment_status === 1) {
+                    // Payment is done, remove the red dot
+                    $(".red-dot").remove();
+                }
+            });
+        }
 
+        // Check payment status every 30 seconds (adjust as needed)
+        setInterval(checkPaymentStatus, 30000);
+    </script>
     
     
     
