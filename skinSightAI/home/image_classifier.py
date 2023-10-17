@@ -4,13 +4,13 @@ import numpy as np
 
 
 # Define the path to your pre-trained model
-model_path = "D:\SkinSightAdditional\skin_disease_classifier_svm.pkl"  # Update with the correct path
+model_path = "C:/Users/user/Downloads/skin_disease_svm_improve_final.pkl"  # Update with the correct path
 
 # Load the pre-trained model
 model = joblib.load(model_path)
 
 # Define a list of class labels
-class_labels = ['atopic dermatitis', 'basal cell carcinoma', 'melanoma', 'echzema', 'melanocytic nevi']
+class_labels = ['Atopic Dermatitis', 'Basal Cell Carcinoma', 'Melanoma', 'Echzema', 'Melanocytic Nevi']
 
 def preprocess_and_predict(image_file):
     # Read the image file from the file object
