@@ -9,7 +9,7 @@
       body {
         font-family: Arial, sans-serif;
         
-        background-color: #f3f3f3;
+        
         margin: 0;
         padding: 0;
         display: flex;
@@ -19,12 +19,17 @@
       }
 
       .container {
-        background-color: rgb(202, 202, 226);
+        color: azure;
+        background-color: rgb(222,29,110);
         border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 10px rgb(222,29,110);
         padding: 20px;
-        width: 300px;
+        width: 38%;
         opacity: 0.9;
+      }
+
+      .im {
+        width: 100%;
       }
 
       h2 {
@@ -48,11 +53,15 @@
         border: 1px solid #ccc;
         border-radius: 4px;
       }
+      .btt{
+        display: flex;
+        width: 60%;
+      }
 
-      button {
-        background-color: #62bb5f;
+      .btt button {
+        background-color: rgb(187,35,94);
         color: white;
-        padding: 1%;
+        padding: 5%;
         width: 50%;
         margin: 8px 100px;
         border: none;
@@ -61,16 +70,28 @@
         transition: background-color 0.3s ease;
       }
 
-      button:hover {
-        background-color: #a1d35f;
+      .btt button a {
+      text-decoration: none;
+      color: white;
       }
+      .btt button:hover {
+        background-color: white;
+        color: rgb(187,35,94);
+      }
+      
+
+      
+    
     </style>
     
 </head>
 <body>
-    <div class="container" style="background-image: url('{%static 'img/pay.webp'%}')">
-        <h2>Please Make your Payment to this Number 017556-68899</h2>
-        <h3 style="color: pink; text-align: center;">Bkash</h3>
+    <div class="container" style="background-color: rgb(222,29,110);">
+      <img src="{% static 'img/OIP (3).jpg' %}" class="im" />
+        <h2>Merchant Number : 017556-68899</h2>
+        <h2>Invoice Number : 01598465218</h2>
+        <h2>Amount: BDT 500</h2>
+        
         <br>
         <h3>Plsease enter your payment details.</h3>
         <form id="paymentForm" method="POST">
@@ -78,13 +99,18 @@
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required><br><br>
             
-            <label for="phone_number">Phone Number:</label>
+            <label for="phone_number">Your Bkash Account Number:</label>
             <input type="tel" id="phone_number" name="phone_number" required><br><br>
             
             
             
             <!-- You can also add a submit button to initiate the payment -->
-            <button type="submit">Payment Done</button>
+            <div class="btt" >
+              <button type="submit" class="btn" onclick="openPopup()">PROCEED</button>
+              <button type="submit" > <a href="{% url 'home_page' %}">CLOSE</a></button>
+              
+            </div>
+            
         </form>
             
     </div>

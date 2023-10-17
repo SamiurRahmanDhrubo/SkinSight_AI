@@ -26,6 +26,8 @@ urlpatterns = [
     path('', home.views.landing, name='landing'),
     path('faq/', home.views.faq, name='faq_page'),
     path('home/', home.views.home, name='home_page'),
+    path('Payment/', home.views.paypop, name='popUp'),
+
     path('admin_page/', home.views.admin_page, name='admin_page'),
     path('toggle_payment_status/<int:request_id>/', home.views.toggle_payment_status, name='toggle_payment_status'),
     path('payment/', home.views.payment, name='payment_page'),

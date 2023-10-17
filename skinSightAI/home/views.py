@@ -213,7 +213,8 @@ def scan_page(request):
 
 def result_view(request):
         return render(request, 'result.html')
-
+def paypop(request):
+        return render(request, 'paymentPop.html')
 def payment(request):
     if request.method == 'POST':
         user_profile = UserProfile.objects.get(user=request.user)
@@ -234,7 +235,7 @@ def payment(request):
             # Update the UserProfile based on PaymentRequest's payment status
             
             
-            return redirect('/home')  # Redirect to the home page after successful payment and phone number match
+            return redirect('/Payment')  # Redirect to the home page after successful payment and phone number match
         else:
             return render(request, 'payment.html', {'error_message': 'Phone number does not match.'})
     else:

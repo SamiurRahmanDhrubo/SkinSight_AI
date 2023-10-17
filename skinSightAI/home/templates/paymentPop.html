@@ -1,0 +1,191 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+        <style>
+      body {
+        font-family: Arial, sans-serif;
+        
+        
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        color: azure;
+        background-color: rgb(222,29,110);
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgb(222,29,110);
+        padding: 20px;
+        width: 38%;
+        height: 50%;
+        opacity: 0.9;
+      }
+
+      .im {
+        width: 100%;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      input {
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .btt{
+        display: flex;
+        width: 60%;
+      }
+
+      .btt button {
+        background-color: rgb(187,35,94);
+        color: white;
+        padding: 5%;
+        width: 50%;
+        margin: 8px 100px;
+        border: none;
+        border-radius: 4px;
+       
+        transition: background-color 0.3s ease;
+      }
+
+      .btt button a {
+      text-decoration: none;
+      color: white;
+      }
+      /* .btt button:hover {
+        background-color: white;
+        color: rgb(187,35,94);
+      } */
+      
+
+      .popup{
+      width: 400px; 
+      background: #fff; 
+      border-radius: 6px;
+      position: absolute; 
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      padding: 0 30px 30px;
+      color: #333;
+  
+      transition: transform 0.4s top 0.4s;
+      }
+      .open-popup{
+      visibility: visible;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(1);
+    }
+      .popup img{
+      width: 100px;
+      margin-top: -50px;
+      border-radius: 50%;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+      .popup h2{
+      
+      font-size: 38px;
+      font-weight: 500;
+      margin: 30px 0 10px;
+    }
+      .popup button{
+      width: 50%;
+      margin-top: 50px;
+      padding: 10px 0;
+      background: #6fd649;
+      color: #fff;
+      border: 0;
+      outline: none;
+      font-size: 18px;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+    }
+    .popup button:hover{
+      width: 50%;
+      margin-top: 50px;
+      padding: 10px 0;
+      background: white;
+      color: #6fd649;
+      border: 0;
+      outline: none;
+      font-size: 18px;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+    }
+    </style>
+    
+</head>
+<body>
+
+
+  <div class="container" style="background-color: rgb(222,29,110);">
+    <img src="{% static 'img/OIP (3).jpg' %}" class="im" />
+      <h2>Merchant Number : 017556-68899</h2>
+      <h2>Invoice Number : 01598465218</h2>
+      <h2>Amount: BDT 500</h2>
+      
+      <br>
+      <h3>Plsease enter your payment details.</h3>
+      <form>
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input disabled><br><br>
+    
+        <label for="phone_number">Your Bkash Account Number:</label>
+        <input type="tel" id="phone_number" name="phone_number" disabled><br><br>
+    
+        <!-- You can also add a submit button to initiate the payment -->
+        <div class="btt">
+            <button type="submit" class="btn" disabled>PROCEED</button>
+            <button type="submit" disabled>CLOSE</button>
+        </div>
+    </form>
+      <div class="popup" id="popup">
+        <img src="{% static 'img/OIP (3).jpg' %}" alt="image">
+      <h2>Thank you</h2>
+      <h3>Your Payment is under review.</h3>
+      <h4>Keep your eyes on the history page to see the payment status</h4>
+      <button type="button" onclick="closePopup()"><a href="{% url 'home_page' %}" style="text-decoration: none;">CLOSE</a></button>
+
+      </div>
+  </div>
+
+  
+
+              
+              
+        
+            
+    
+    
+    
+</body>
+</html>
