@@ -23,7 +23,7 @@
   <body>
     <div
       class="banner"
-      style="background-image: url('{%static 'img/skin1.jpg'%}')"
+      style="background-image: url('{%static 'img/hlt.jpg'%}')"
     >
       <nav>
         <div class="navbar">
@@ -41,13 +41,11 @@
             <li><a href="{% url 'artificial_intelligence' %}">Artificial Intelligence</a></li>
             
 
-            <li>
-              <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-            </li>
+            
           </ul>
         </div>
       </nav>
-      <div class="content">
+      <div class="content" style="background-color: 	#3580a0; opacity: .8;">
         <h1>Say No To Skin Diseases!</h1>
         <h3>
           Check your skin on the smartphone and get instant results within 1
@@ -242,6 +240,7 @@
           </div>
         </div>
       </div>
+      <i class="fa-solid fa-angles-up" id="scrollToTopBtn"></i>
     </footer>
     <b style="font-style: italic; color: red; padding: 20px 0 20px 0"
       ><center>SkinSight AI | All Rights Reserved. Copyright © 2023</center></b
@@ -249,11 +248,22 @@
 
     <!-- Include Bootstrap JS (CDN) and jQuery (required for Bootstrap) -->
 
-    <script type="text/javascript">
-      window.addEventListener("scroll", function () {
-        var navbar = document.querySelector("navbar");
-        navbar.classList.toggle("sticky", window.scrolly > 0);
-      });
+    <script>
+      const scrollToTopButton = document.getElementById("scrollToTopBtn");
+
+window.onscroll = () => {
+    if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+        scrollToTopButton.style.display = "block";
+    } else {
+        scrollToTopButton.style.display = "none";
+    }
+};
+
+scrollToTopButton.addEventListener("click", () => {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+});
+      
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>

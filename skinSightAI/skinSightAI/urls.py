@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home.views.landing, name='landing'),
     path('faq/', home.views.faq, name='faq_page'),
+    path('faq2/', home.views.faq2, name='faq_page2'),
     path('home/', home.views.home, name='home_page'),
     path('Payment/', home.views.paypop, name='popUp'),
 
@@ -32,12 +33,20 @@ urlpatterns = [
     path('toggle_payment_status/<int:request_id>/', home.views.toggle_payment_status, name='toggle_payment_status'),
     path('payment/', home.views.payment, name='payment_page'),
     path('terms/', home.views.term, name='t&c_page'),
+    path('terms2/', home.views.term2, name='t&c_page2'),
+
     path('login/', home.views.login_v, name='login_page'),
     path('feature/', home.views.features, name='feature_page'),
+    path('feature2/', home.views.features2, name='feature_page2'),
+
     path('register/', home.views.register, name='register_page'),
     path('contact/', home.views.contact, name='contact'),
+    path('contact2/', home.views.contact2, name='contact2'),
+
     path('about/', home.views.about, name='about'),
+    path('about2/', home.views.about2, name='about2'),
     path('ai/', home.views.ai, name='artificial_intelligence'),
+    path('ai2/', home.views.ai2, name='artificial_intelligence2'),
     path('history/', home.views.history, name='history'),
     path('profile/', home.views.profile, name='profile_page'),
     path('logout/', home.views.logout_view, name='logout'),

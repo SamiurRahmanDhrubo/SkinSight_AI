@@ -67,6 +67,8 @@ def check_payment_status(request):
 
 def features(request):
     return render(request, 'features.html')
+def features2(request):
+    return render(request, 'features2.html')
 
 
 
@@ -160,19 +162,29 @@ def register(request):
 
 def contact(request):
     return render(request, 'contact.html')
+def contact2(request):
+    return render(request, 'contact2.html')
 
 
 def about(request):
     return render(request, 'about.html')
+def about2(request):
+    return render(request, 'about2.html')
 
 def ai(request):
     return render(request, 'ai.html')
+def ai2(request):
+    return render(request, 'ai2.html')
 
 def faq(request):
     return render(request, 'faq.html')
+def faq2(request):
+    return render(request, 'faq2.html')
 
 def term(request):
     return render(request, 'terms.html')
+def term2(request):
+    return render(request, 'terms2.html')
 
 
 from .image_classifier import preprocess_and_predict  # Import the preprocess_and_predict function

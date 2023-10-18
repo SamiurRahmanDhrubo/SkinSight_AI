@@ -51,9 +51,7 @@
             </li>
             <li><a href="{% url 'logout' %}">Logout</a></li>
 
-            <li>
-              <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-            </li>
+            
           </ul>
         </div>
       </nav>
@@ -125,10 +123,7 @@
                       class="form-control mb-1"
                       value="{{ user_profile.user.email }}"
                     />
-                    <div class="alert alert-warning mt-3">
-                      Your email is not confirmed. Please check your inbox.<br />
-                      <a href="javascript:void(0)">Resend confirmation</a>
-                    </div>
+                    
                   </div>
                   <div class="form-group">
                     <label class="form-label">Phone Number</label>
@@ -154,24 +149,39 @@
       </div>
     </div>
     
-    <div class="cont3" style="display: flex; justify-content: center; align-items: center; margin-top: 5%; margin-bottom: 5%;">
+    <div class="cont3" style="display: flex; justify-content: center; align-items: center; margin-top: 3%; margin-bottom: 1%;">
       <h2 style="margin: 0; ">Make Your Payment Here</h2>
       
       
     </div>
-    <div class="cont3" style="display: flex; justify-content: center; align-items: center; margin-top: 5%; margin-bottom: 5%;">
+    <div class="cont3" style="display: flex; justify-content: center; align-items: center; margin-top: 1%; margin-bottom: 1%;">
       <h3>Payment amount: 500 BDT</h3>
       
       
     </div>
+  
     
-    <div class="cont3" style="display: flex; align-items: center; margin-bottom: 0;"> 
+    <div class="cont3" style="display: flex; align-items: center; padding: 2%; width: 20%;"> 
       <button type="button"   style="flex: 1; background-color: rgb(71, 178, 228); color: white; padding: 1% 2% 1% 2%; font-size: 12px; border: none; cursor: pointer;"><a href="{% url 'payment_page' %}" style="text-decoration: none; "><h3>Pay Now</h3></a></button>
     </div>
     <script
       data-cfasync="false"
-      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
-    ></script>
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+    const scrollToTopButton = document.getElementById("scrollToTopBtn");
+
+window.onscroll = () => {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        scrollToTopButton.style.display = "block";
+    } else {
+        scrollToTopButton.style.display = "none";
+    }
+};
+
+scrollToTopButton.addEventListener("click", () => {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+});
+    </script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript"></script>

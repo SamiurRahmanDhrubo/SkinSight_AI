@@ -1,0 +1,407 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <title>Contact Us</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+
+      .banner{
+    width: 100%;
+    height: 20vh;
+    background-image: linear-
+    gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75));
+    background-size: cover; 
+    background-position: center;
+    }
+    
+    .navbar{
+      position: fixed; /* Set the navbar to fixed position */
+      top: 0; /* Position the navbar at the top of the page */
+      width: 100%; /* Full width */
+      background-color: rgb(17, 1, 1);
+      
+      margin: auto;
+      padding: 35px 0;
+      display: flex;
+      align-items: center;
+      justify-content: 10px;
+  }
+  .navbar:hover{
+      background-color: rgb(15, 61, 29);
+          opacity: 0.9;
+      }
+  
+  .logo{
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+  }
+  .navbar ul li{
+      list-style: none;
+      display: inline-block;
+      margin: 0 20px;
+      position: relative;
+  }
+  
+  .navbar ul li a{
+      text-decoration: none;
+      color: #fff;
+      text-transform: uppercase;
+  }
+  
+  .navbar ul li::after{
+      content: '';
+      height: 3px; 
+      width: 0;
+      background: #009688;
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      transition: .5s;
+  }
+  .navbar ul li:hover:after{
+      width: 100%;
+  }
+  .content{
+      margin-left: 15%;
+      width: 70%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+      color: white;
+  }
+    .content h1{
+        font-size: 70px;
+        margin-top: 80px;
+    }
+    
+    .content p{
+    margin: 20px auto; 
+    font-weight: 100;
+    line-height: 25px;
+    }
+    .content button{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #009688;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    }
+    
+    .content span{
+        background: #009688; 
+        height: 100%; 
+        width: 0;
+        border-radius: 25px; 
+        position: absolute;
+        left: 0; 
+        bottom: 0;
+        z-index: -1;
+        transition: 0.5s;
+    }
+      .contact-form {
+        width: 50%;
+        margin: 50px auto;
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        border-radius: 4px;
+      }
+
+      input[type="submit"] {
+        background-color: #04aa6d;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #02a458;
+      }
+      footer{
+    background-color: #222f3e;
+    position: relative;
+    width: 100%;
+    min-height: 350px;
+    padding: 3rem 1rem;
+}
+.container {
+   max-width: 100%;
+   margin: 0 auto;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+
+
+}
+.row{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.col{
+   min-width: 250px;
+   color:#f2f2f2f2;
+   font-family: poppins;
+   padding:0 2rem;
+}
+.col .logo{
+   width: 100px;
+   margin-bottom:25px;
+}
+.col h3{
+   color:#ff014fff;
+   margin-bottom: 20px;
+   position: relative;
+   cursor: pointer;
+}
+.col h3::after{
+   content: '';
+   height:3px;
+   width:0px;
+   background-color: #ff014fff;
+   position: absolute;
+   bottom: 0;
+   left:0;
+   transition: 0.3s ease;
+
+}
+.col h3:hover::after{
+   width:30px
+}
+.col .social a i{
+   color:#ff014fff;
+  font-size: 30px;
+   margin-top:2rem;
+   margin-right: 5px;
+   transition: 0.3s ease;
+}
+.col .social a i:hover{
+   transform: scale(4.5);
+   filter:grayscale(25);
+}
+.col .links a{
+   display: block;
+   text-decoration: none;
+   color:#f2f2f2;
+   margin-bottom: 5px;
+   position: relative;
+   transition: 0.3s ease;
+}
+.col .links a::before{
+   content:'';
+   height: 16px;
+   width:3px;
+   position: absolute;
+   top:5px;
+   left:-10px;
+   background-color: #ff014fff;
+   transition: 0.5s ease;
+   opacity: 0;
+}
+.col .links a:hover::before{
+   opacity: 1;
+}
+.col .links a:hover{
+   transform: translateX(-8px);
+   color:#ff014fff;
+}
+.col .contact-details{
+   display: inline-flex;
+   justify-content: space-between;
+   padding: 10px;
+}
+.col .contact-details i{
+   margin-right:15px;
+   margin-top: 0px;
+}
+.row .form{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding:2rem 0;
+}
+.row .form input{
+   background-color: #1a1c20ff;
+   border:0;
+   outline:none;
+   padding:14px 20px;
+   border-radius: 6px;
+   border-top-right-radius: 0;
+   border-bottom-right-radius: 0;
+}
+.form button{
+   padding:14px 20px;
+   border:0;
+   border-radius: 6px;
+   border-top-left-radius: 0;
+   border-bottom-left-radius: 0;
+   background-color: #ff014fff;
+}
+
+@media(max-width:767px) {
+  html {
+    font-size: 14px;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="banner">
+      <nav> 
+       <div class="navbar">
+           <img src="{% static 'img/logo-color.png' %}" class="logo">
+           
+           <ul>
+             <li><a href="{% url 'home_page' %}">Home</a></li>
+             <li><a href="{% url 'feature_page2' %}">Features</a></li>
+             <li><a href="{% url 'about2' %}">About Us</a></li>
+             <li><a href="{% url 'contact2' %}">Contact Us</a></li>
+             <li><a href="{% url 't&c_page2' %}">T&C</a></li> 
+             <li><a href="{% url 'profile_page' %}">Profile</a></li> 
+ 
+             <li><a href="{% url 'faq_page2' %}">FAQ</a></li> 
+ 
+             <li><a href="{% url 'artificial_intelligence2' %}">Artificial Intelligence</a></li>
+             
+ 
+             <li>
+               <a href="{% url 'history' %}">
+                 History
+                 {% if has_pending_payment %}
+                   <span class="red-dot"></span>
+                 {% endif %}
+               </a>
+             </li>
+             <li><a href="{% url 'logout' %}">Logout</a></li> 
+           </ul>
+           
+       </div>
+   </nav>
+
+   </div>
+   <!-- Header -->
+    <div class="contact-form">
+      <h1>Contact Us</h1>
+      <form action="/contact" method="post" onsubmit="return validateForm();">
+        <input type="text" name="name" id="name" placeholder="Your Name" />
+        <input type="email" name="email" id="email" placeholder="Your Email" />
+        <input type="text" name="subject" id="subject" placeholder="Subject" />
+        <textarea
+          name="message"
+          id="message"
+          placeholder="Your Message"
+        ></textarea>
+        <input type="submit" value="Send" />
+      </form>
+    </div>
+
+    <!--Footer-->
+<footer>
+  <div class="container">
+      <div class="row">
+            <div class="col" id="company"  >
+                <img src="{% static 'img/logo-color.png' %}" style="height: 50px; width: 50px;">
+                <h3>
+                  SkinSight Ai is not intended to perform diagnosis, but rather to provide users the ability to image, track, and better understand their moles.
+                </h3>
+                
+            </div>
+
+
+            <div class="col" id="useful-links">
+              <h3>Links</h3>
+              <div class="links">
+               <a href="{% url 'about' %}">About Us</a>
+               <a href="{% url 'feature_page' %}">Features</a>
+               <a href="{% url 'artificial_intelligence' %}">Artificial Intelligence</a>
+                 <a href="{% url 'contact' %}">Contact Us</a>
+                 <a href="{% url 'register_page' %}">Register</a>
+              <a href="{% url 't&c_page' %}">T&C</a>
+
+                 <a href="">FAQ</a>
+              </div>
+           </div>
+
+           <div class="col" id="company">
+              <h3>
+                  If you have any question about our AI system - contact with us through email:
+              </h3>
+              <h5>support@skinsight-ai.com
+              </h5>
+              <div class="social">
+                  <a href="#"><i class="fab fa-facebook"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-youtube"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+              
+          </div>
+      
+      </div>
+
+      <div class="row">
+            <div class="form">
+              <form action="">
+                  <input type="text" placeholder="Email here...">
+                  <button><i class="fa fa-paper-plane"></i></button>
+              </form>
+            </div>
+      </div>
+
+  </div>
+</footer>
+    <script>
+      function validateForm() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var subject = document.getElementById("subject").value;
+        var message = document.getElementById("message").value;
+
+        if (name === "" || email === "" || subject === "" || message === "") {
+          alert("Please fill in all fields.");
+          return false; // Prevent form submission
+        }
+        return true; // Allow form submission
+      }
+    </script>
+  </body>
+</html>

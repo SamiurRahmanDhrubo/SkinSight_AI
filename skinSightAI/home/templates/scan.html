@@ -4,7 +4,7 @@
 <head>
     <style>
         .blue-div {
-            background-color: rgb(106, 169, 190);
+            background: linear-gradient(to left, #14cfeb, #025197);
             padding: 20px;
         }
     </style>
@@ -18,27 +18,38 @@
 </head>
 <body>
     <!-- Header -->
-    <div class="banner" style=" background-image: url('{%static 'img/derm_-_hero_image_2_1.jpg'%}');">
+    <div class="banner" style=" background-image: url('{%static 'img/istockphoto-1181454268-612x612.jpg'%}');">
        <nav> 
         <div class="navbar">
             <img src="{% static 'img/logo-color.png' %}" class="logo">
             
             <ul>
                 <li><a href="{% url 'home_page' %}">Home</a></li>
-                <li><a href="{% url 'feature_page' %}">Features</a></li>
-                <li><a href="{% url 'about' %}">About Us</a></li>
-                <li><a href="{% url 'contact' %}">Contact Us</a></li>
-                <li><a href="{% url 't&c_page' %}">T&C</a></li> 
+            <li><a href="{% url 'feature_page' %}">Features</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+            <li><a href="{% url 't&c_page' %}">T&C</a></li> 
+            <li><a href="{% url 'profile_page' %}">Profile</a></li> 
 
-                <li><a href="{% url 'faq_page' %}">FAQ</a></li> 
-                <li><a href="">Artificial Intelligence</a></li>
-                
-                <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+            <li><a href="{% url 'faq_page' %}">FAQ</a></li> 
+
+            <li><a href="{% url 'artificial_intelligence' %}">Artificial Intelligence</a></li>
+            
+
+            <li>
+              <a href="{% url 'history' %}">
+                History
+                {% if has_pending_payment %}
+                  <span class="red-dot"></span>
+                {% endif %}
+              </a>
+            </li>
+            <li><a href="{% url 'logout' %}">Logout</a></li> 
             </ul>
             
         </div>
     </nav>
-        <div class="content">
+        <div class="content" style="background-color: 	#3580a0; opacity: .8;">
             <h1>Scan your Skin </h1>
             <p style="font-size:xx-small; color: black;"><h6>The scan result is not a diagnosis. To obtain an accurate diagnosis and a recommendation for treatment - consult your doctor. </h3></p>
         </div>
@@ -46,17 +57,18 @@
     </div>
     <!-- Header -->
 
-    <div class="acc">
-
-        <h1>Scan</h1>
-    </div>
+    
 
     {% block content %}
     <div class="blue-div">
         <center><h2><p>You can scan 5 times for each payment</p></h2>
         <div id="userData">
             <!-- Display the number of scans left here -->
-            <h3><p>Scans left: {{ user_profile.value }}</p></h3></center>
+            <h3><p>Scans left: </p></h3></center>
+            <center><div style="background: linear-gradient(to left, 	#ff5577, #aa0022, 	#ff5577); width: 10%; border-radius: 15%;">
+                <center><h2 style="color: white">{{ user_profile.value }} times</h2></center>
+            </div></center>
+            
         </div>
     </div>
    
@@ -144,9 +156,28 @@
         </div>
 
     </div>
+    <!-- <button id="scrollToTopBtn">Scroll to Top</button> -->
+    <i class="fa-solid fa-angles-up" id="scrollToTopBtn"></i>
  </footer>
 <b style="font-style: italic; color: red; padding: 20px 0 20px 0;"><center>SkinSight AI | All Rights Reserved. Copyright © 2023
 </center></b>
-<script src="{% static 'js/faq.js' %}"></script>
+<script >
+    // src="{% static 'js/faq.js' %}"
+
+const scrollToTopButton = document.getElementById("scrollToTopBtn");
+
+window.onscroll = () => {
+    if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+        scrollToTopButton.style.display = "block";
+    } else {
+        scrollToTopButton.style.display = "none";
+    }
+};
+
+scrollToTopButton.addEventListener("click", () => {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+});
+</script>
 </body>
 </html>

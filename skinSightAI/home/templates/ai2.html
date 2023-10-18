@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ai.css' %}">
+    <!-- Include Bootstrap CSS (CDN) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="banner" style=" background-image: url('{%static 'img/result.jpeg'%}');">
+       <nav> 
+        <div class="navbar">
+            <img src="{% static 'img/logo-color.png' %}" class="logo">
+            
+            <ul>
+              <li><a href="{% url 'home_page' %}">Home</a></li>
+              <li><a href="{% url 'feature_page2' %}">Features</a></li>
+              <li><a href="{% url 'about2' %}">About Us</a></li>
+              <li><a href="{% url 'contact2' %}">Contact Us</a></li>
+              <li><a href="{% url 't&c_page2' %}">T&C</a></li> 
+              <li><a href="{% url 'profile_page' %}">Profile</a></li> 
+  
+              <li><a href="{% url 'faq_page2' %}">FAQ</a></li> 
+  
+              <li><a href="{% url 'artificial_intelligence2' %}">Artificial Intelligence</a></li>
+              
+  
+              <li>
+                <a href="{% url 'history' %}">
+                  History
+                  {% if has_pending_payment %}
+                    <span class="red-dot"></span>
+                  {% endif %}
+                </a>
+              </li>
+              <li><a href="{% url 'logout' %}">Logout</a></li> 
+            </ul>
+            
+        </div>
+    </nav>
+       
+
+    </div>
+    <!-- Header -->
+
+    <div class="acc">
+
+        <h1>Artificial Intelligence</h1>
+    </div>
+    <div id="about-2" style="background-color: white; padding: 50px">
+        <div class="content-box-lg">
+          <div class="container2">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="about-item text-center">
+                  <img
+                    src="{% static 'img/ai.jpg' %}"
+                    style="height: 300px; width: 300px"
+                    alt="#"
+                  />
+                </div>
+              </div>
+              
+              <div class="col-md-7">
+                <div class="about-item text-center">
+                  <center><i class="fa-solid fa-circle-exclamation"></i></center>
+                  <h2 style="margin-top: 25px">
+                    <center>How does Artificial Intelligence analyze images?</center>
+                  </h2>
+                  <hr style="width: 500px" />
+                  <h3 style="width: 100%; font-size: medium; text-align: justify">
+                   <p>SkinSight AI uses a deep machine learning algorithm (AI-algorithm). The human ability to learn 
+                    from examples and experiences has been transferred to a computer. For this purpose, the neural network has been trained 
+                    using a dermoscopic imaging database containing tens of thousands 
+                    of examples that have confirmed diagnosis and assessment by dermatologists.
+                   </p> 
+                   <p>The AI is able to distinguish between benign and malignant tumors, similar to the ABCDE rule 
+                       (5 main signs of oncology: asymmetry, boundary, color, diameter, and change over time). 
+                       The difference between them is that the algorithm can analyze thousands of features, but not only 
+                       5 of them. Of course, only a machine can detect that amount of evidence.
+                    </p>
+                    <p>Due to the productive cooperation with doctors, the quality of the algorithm performance is 
+                       constantly being improved. Based on growing experience and its own autonomous rules, the AI is 
+                       able to distinguish between benign and malignant tumors, find risks of human papillomavirus, and 
+                       classify different types of acne…
+
+                    </p>
+
+
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+    
+      
+
+  
+
+    
+
+    
+
+</div>
+
+    </div>
+    
+
+<!--Footer-->
+<footer>
+    <div class="container">
+        <div class="row">
+              <div class="col" id="company"  >
+                  <img src="{% static 'img/logo-color.png' %}" style="height: 50px; width: 50px;">
+                  <h3>
+                    SkinSight Ai is not intended to perform diagnosis, but rather to provide users the ability to image, track, and better understand their moles.
+                  </h3>
+                  
+              </div>
+
+
+              <div class="col" id="useful-links">
+                <h3>Links</h3>
+                <div class="links">
+                 <a href="{% url 'about' %}">About Us</a>
+                 <a href="{% url 'feature_page' %}">Features</a>
+                 <a href="">Artificial Intelligence</a>
+                   <a href="{% url 'contact' %}">Contact Us</a>
+                   <a href="{% url 'register_page' %}">Register</a>
+                <a href="{% url 't&c_page' %}">T&C</a>
+
+                   <a href="">FAQ</a>
+                </div>
+             </div>
+
+             <div class="col" id="company">
+                <h3>
+                    If you have any question about our AI system - contact with us through email:
+                </h3>
+                <h5>support@skinsight-ai.com
+                </h5>
+                <div class="social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                  </div>
+                
+            </div>
+        
+        </div>
+
+        <div class="row">
+              <div class="form">
+                <form action="">
+                    <input type="text" placeholder="Email here...">
+                    <button><i class="fa fa-paper-plane"></i></button>
+                </form>
+              </div>
+        </div>
+
+    </div>
+ </footer>
+<b style="font-style: italic; color: red; padding: 20px 0 20px 0;"><center>SkinSight AI | All Rights Reserved. Copyright © 2023
+</center></b>
+<script src="{% static 'js/faq.js' %}"></script>
+</body>
+</html>

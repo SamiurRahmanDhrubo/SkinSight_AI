@@ -27,12 +27,12 @@
                 <li><a href="{% url 'faq_page' %}">FAQ</a></li> 
                 <li><a href="{% url 'artificial_intelligence' %}">Artificial Intelligence</a></li>
                 
-                <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                
             </ul>
             
         </div>
     </nav>
-        <div class="content">
+        <div class="content" style="background-color: 	#3580a0; opacity: .8;">
             <h1>About Us </h1>
             <p>Discover Our Story: About Us and Our Mission.</p> 
             <!-- <div>
@@ -319,9 +319,30 @@ Feel free to adapt and modify this template to match your platform's unique visi
         </div>
 
     </div>
+    <i class="fa-solid fa-angles-up" id="scrollToTopBtn"></i>
  </footer>
 <b style="font-style: italic; color: red; padding: 20px 0 20px 0;"><center>SkinSight AI | All Rights Reserved. Copyright © 2023
 </center></b>
-<script src="{% static 'js/about.js' %}"></script>
+<script>
+  const scrollToTopButton = document.getElementById("scrollToTopBtn");
+
+window.onscroll = () => {
+if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+    scrollToTopButton.style.display = "block";
+} else {
+    scrollToTopButton.style.display = "none";
+}
+};
+
+scrollToTopButton.addEventListener("click", () => {
+document.body.scrollTop = 0; // For Safari
+document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+});
+  
+</script>
+<script src="{% static 'js/about.js' %}">
+  
+</script>
+
 </body>
 </html>

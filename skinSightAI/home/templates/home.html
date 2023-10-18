@@ -54,23 +54,22 @@
   <body>
     <div
       class="banner"
-      style="background-image: url('{%static 'img/skin1.jpg'%}')"
-    >
+      style="background-image: url('{%static 'img/hlt.jpg'%}');">
       <nav>
         <div class="navbar">
           <img src="{% static 'img/logo-color.png' %}" class="logo" />
 
           <ul>
             <li><a href="{% url 'home_page' %}">Home</a></li>
-            <li><a href="{% url 'feature_page' %}">Features</a></li>
-            <li><a href="{% url 'about' %}">About Us</a></li>
-            <li><a href="{% url 'contact' %}">Contact Us</a></li>
-            <li><a href="{% url 't&c_page' %}">T&C</a></li> 
+            <li><a href="{% url 'feature_page2' %}">Features</a></li>
+            <li><a href="{% url 'about2' %}">About Us</a></li>
+            <li><a href="{% url 'contact2' %}">Contact Us</a></li>
+            <li><a href="{% url 't&c_page2' %}">T&C</a></li> 
             <li><a href="{% url 'profile_page' %}">Profile</a></li> 
 
-            <li><a href="{% url 'faq_page' %}">FAQ</a></li> 
+            <li><a href="{% url 'faq_page2' %}">FAQ</a></li> 
 
-            <li><a href="{% url 'artificial_intelligence' %}">Artificial Intelligence</a></li>
+            <li><a href="{% url 'artificial_intelligence2' %}">Artificial Intelligence</a></li>
             
 
             <li>
@@ -86,14 +85,14 @@
           </ul>
         </div>
       </nav>
-      <div class="content">
+      <div class="content" style="background-color: 	#3580a0; opacity: .8;">
         <h1>Say No To Skin Diseases!</h1>
         <h3>
           Check your skin on the smartphone and get instant results within 1
           minute.
         </h3>
         
-        <p style="font-size: 15; color: black">
+        <p style="font-size: 1; color: black">
           * The scan result is not a diagnosis. To obtain an accurate diagnosis
           and a recommendation for treatment - consult your doctor.
         </p>
@@ -103,13 +102,29 @@
     <!-- Your website content goes here -->
 
     <!--    banner-->
-    <div class="cont3" style="display: flex; justify-content: center; align-items: center; margin-bottom: 0;">
-      <h2 style="margin: 0; ">Scan your skin now</h2>
+    <div class="cont3" style="align-items: center; align-items: center; margin-bottom: 0;">
+      <center><h2>Scan your Skin with Just a click</h2></center>
+      <br>
+      <br>
+      <center>
+        <div style="background-color: #725042; width: 30%;">
+          <a href="#" class="animated-button1" onclick="window.location.href='/scan'">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <h1 style="text-decoration: none;"><b>Scan Now</b></h1>
+          </a>
+        </center>
+        </div>
+        
+      
+      
     </div>
   
-    <div class="cont3" style="display: flex; align-items: center; margin-bottom: 0;"> 
-      <button type="button" style="flex: 1; background-color: rgb(71, 178, 228); color: white; padding: 1% 2% 1% 2%; font-size: 12px; border: none; cursor: pointer;" onclick="window.location.href='/scan'"><h3>Scan Now</h3></button>
-    </div>
+    <!-- <div class="cont3" style="display: flex; align-items: center; margin-bottom: 0;"> 
+      <!-- <button type="button" style="flex: 1; background-color: rgb(71, 178, 228); color: white; padding: 1% 2% 1% 2%; font-size: 12px; border: none; cursor: pointer;" onclick="window.location.href='/scan'"><h3>Scan Now</h3></button> -->
+    <!-- </div> --> -->
     <div id="payment-popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid #000; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); z-index: 999;">
       Your Payment is done. Now you can scan.
       <button id="close-popup">OK</button>
@@ -290,6 +305,7 @@
           </div>
         </div>
       </div>
+      <i class="fa-solid fa-angles-up" id="scrollToTopBtn"></i>
     </footer>
     <b style="font-style: italic; color: red; padding: 20px 0 20px 0"
       ><center>SkinSight AI | All Rights Reserved. Copyright © 2023</center></b
@@ -327,40 +343,6 @@
     }
   });
 } -->
-
-
-  function closePopup() {
-    $("#payment-popup").hide();
-  }
-
-  $("#close-popup").click(closePopup);
-
-  // Check payment status every 30 seconds (adjust as needed)
-  setInterval(checkPaymentStatus, 30000);
-
-  // Function to set a cookie
-  function setCookie(name, value, days) {
-    var expires = "";
-    if (days) {
-      var date = new Date();
-      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-      expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + value + expires + "; path=/";
-  }
-
-  // Function to get a cookie
-  function getCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(";");
-    for (var i = 0; i < ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) === " ") c = c.substring(1, c.length);
-      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
-  }
-</script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         function checkPaymentStatus() {
@@ -374,6 +356,22 @@
 
         // Check payment status every 30 seconds (adjust as needed)
         setInterval(checkPaymentStatus, 30000);
+
+
+        const scrollToTopButton = document.getElementById("scrollToTopBtn");
+
+window.onscroll = () => {
+    if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+        scrollToTopButton.style.display = "block";
+    } else {
+        scrollToTopButton.style.display = "none";
+    }
+};
+
+scrollToTopButton.addEventListener("click", () => {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+});
     </script>
     
     

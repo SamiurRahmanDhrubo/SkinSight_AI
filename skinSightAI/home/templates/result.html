@@ -29,17 +29,30 @@
                 <img src="{% static 'img/logo-color.png' %}" class="logo" alt="Logo">
                 <ul>
                     <li><a href="{% url 'home_page' %}">Home</a></li>
-                    <li><a href="{% url 'feature_page' %}">Features</a></li>
-                    <li><a href="{% url 'about' %}">About Us</a></li>
-                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
-                    <li><a href="{% url 't&c_page' %}">T&C</a></li> 
-                    <li><a href="{% url 'faq_page' %}">FAQ</a></li> 
-                    <li><a href="{% url 'artificial_intelligence' %}">Artificial Intelligence</a></li>
-                    <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+            <li><a href="{% url 'feature_page' %}">Features</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+            <li><a href="{% url 't&c_page' %}">T&C</a></li> 
+            <li><a href="{% url 'profile_page' %}">Profile</a></li> 
+
+            <li><a href="{% url 'faq_page' %}">FAQ</a></li> 
+
+            <li><a href="{% url 'artificial_intelligence' %}">Artificial Intelligence</a></li>
+            
+
+            <li>
+              <a href="{% url 'history' %}">
+                History
+                {% if has_pending_payment %}
+                  <span class="red-dot"></span>
+                {% endif %}
+              </a>
+            </li>
+            <li><a href="{% url 'logout' %}">Logout</a></li> 
                 </ul>
             </div>
         </nav>
-        <div class="content">
+        <div class="content" style="background-color: 	#3580a0; opacity: .8;">
             <h1>Your result is ready</h1>
             <p style="font-size: xx-small; color: #0a0808;">
                 <h6>The scan result is not a diagnosis. To obtain an accurate diagnosis and a recommendation for treatment - consult your doctor.</h6>
@@ -49,17 +62,18 @@
     <!-- Header -->
 
     <div class="acc">
-        <h1>Result</h1>
-        <div style="display: flex; align-items: center; min-height: 10vh;">
+        <h1 style="color: white;">Result</h1>
+        <div style=" align-items: center; min-height: 10vh;">
             {% if image_instance %}
             <!-- Create a container div for the image and apply margin to it -->
-            <div style="flex: 1; padding-left: 10%; padding-top: 0%;">
-                <img src="{{ image_instance.image.url }}" alt="Uploaded Image" style="max-width: 70%; height: 70%;">
-            </div>
+            <center><div style="padding: 1%; width: 30%; background: linear-gradient(to left, 	#ff5577, #aa0022, 	#ff5577);">
+                <img src="{{ image_instance.image.url }}" alt="Uploaded Image" style="width: 100%; height: 90%;">
+            </div></center>
             <!-- Adjust the width of this div -->
-            <div class="disease-decoration" style="flex: 3; margin-right: 10%;margin-top: 3%;margin-bottom: 3%;">
+            <div class="disease-decoration" style="margin: 1% 10% 10% 10%; background: linear-gradient(to left, #14cfeb, #025197);">
                 {% if prediction == "Melanoma" %}
                 <center><h3>You may have</h3> <br> <h2><b>Melanoma</b></h2></center><br>
+                <div></div>
                 <h5><p>Melanoma is a serious form of skin cancer that can be life-threatening if not detected and treated early. Here are some general guidelines for managing melanoma:
 
                     <p>1. Consult a Dermatologist or Oncologist: If you suspect you have melanoma or if you notice any changes in your 
@@ -386,9 +400,26 @@
             </div>
   
         </div>
+        <i class="fa-solid fa-angles-up" id="scrollToTopBtn"></i>
     </footer>
     <b style="font-style: italic; color: red; padding: 20px 0 20px 0;"><center>SkinSight AI | All Rights Reserved. Copyright © 2023
     </center></b>
-    <script src="{% static 'js/faq.js' %}"></script>
+    <script>
+const scrollToTopButton = document.getElementById("scrollToTopBtn");
+
+window.onscroll = () => {
+    if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+        scrollToTopButton.style.display = "block";
+    } else {
+        scrollToTopButton.style.display = "none";
+    }
+};
+
+scrollToTopButton.addEventListener("click", () => {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+});
+
+    </script>
 </body>
 </html>

@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/terms.css' %}">
+    <!-- Include Bootstrap CSS (CDN) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="banner" style=" background-image: url('{%static 'img/1000_F_216478576_nMIuHy7GaSGawBVnm657VwS2XU3UuYHX.jpg'%}');">
+       <nav> 
+        <div class="navbar">
+            <img src="{% static 'img/logo-color.png' %}" class="logo">
+            
+            <ul>
+                <li><a href="{% url 'home_page' %}">Home</a></li>
+              <li><a href="{% url 'feature_page2' %}">Features</a></li>
+              <li><a href="{% url 'about2' %}">About Us</a></li>
+              <li><a href="{% url 'contact2' %}">Contact Us</a></li>
+              <li><a href="{% url 't&c_page2' %}">T&C</a></li> 
+              <li><a href="{% url 'profile_page' %}">Profile</a></li> 
+  
+              <li><a href="{% url 'faq_page2' %}">FAQ</a></li> 
+  
+              <li><a href="{% url 'artificial_intelligence2' %}">Artificial Intelligence</a></li>
+              
+  
+              <li>
+                <a href="{% url 'history' %}">
+                  History
+                  {% if has_pending_payment %}
+                    <span class="red-dot"></span>
+                  {% endif %}
+                </a>
+              </li>
+              <li><a href="{% url 'logout' %}">Logout</a></li> 
+            </ul>
+            
+        </div>
+    </nav>
+        <div class="content" style="background-color: 	#3580a0; opacity: .8;">
+            <h1 style="color: black;">Terms and Conditions </h1>
+            <p>Understanding Our Policies: Terms and Conditions Explained.</p> 
+            
+            <p style="font-size:xx-small; color: black;">* The scan result is not a diagnosis. To obtain an accurate diagnosis and a recommendation for treatment - consult your doctor. </p>
+        </div>
+
+    </div>
+    <!-- Header -->
+
+    <div class="acc">
+
+        <h1>Terms & Conditions</h1>
+
+
+        <div class="tc">
+            <ul>
+                <li>Acceptance of Terms: By using the SkinSight-AI platform, you agree to abide by these terms and conditions.</li>
+                <li>Medical Disclaimer: SkinSight-AI is a diagnostic tool, but it does not replace professional medical advice. 
+                    Consult a healthcare provider for accurate diagnosis and treatment</li>
+                <li>Privacy: We take your privacy seriously. Your uploaded images and personal information will be handled in 
+                    accordance with our privacy policy.</li>
+                <li>Accuracy of Information: While we strive for accuracy, we cannot guarantee the correctness of diagnoses. 
+                    Use the platform at your own discretion.</li>
+                <li>Eligibility: Users must be at least 18 years old or have parental consent to use the platform.</li>
+                <li>User Conduct: Users must not upload inappropriate or offensive content. We reserve the right to remove such content.</li>
+                <li>Intellectual Property: The platform's content and algorithms are protected by intellectual property laws. Users may 
+                    not copy or reproduce them.</li>
+                <li>Account Security: Users are responsible for maintaining the security of their accounts and passwords.</li>
+                <li>Fees: We may charge fees for certain premium services. Users will be notified of any applicable charges.</li>
+                <li>Termination: We reserve the right to terminate or suspend user accounts for violations of these terms.</li>
+                <li>Data Collection: We collect and analyze user data to improve the platform and user experience.</li>
+                <li>Third-Party Links: The platform may contain links to third-party websites. We are not responsible for their content or practices.</li>
+                <li>User Feedback: We welcome user feedback but may use it for platform improvement without compensation.</li>
+                <li>Limitation of Liability: We are not liable for any damages arising from platform use or reliance on diagnoses.</li>
+                <li>Governing Law: These terms are governed by the laws of [Bangladesh's Jurisdiction].</li>
+                <li>Changes to Terms: We may update these terms periodically. Users will be notified of changes.</li>
+                <li>No Medical Emergency Services: SkinSight-AI does not provide emergency medical services. In case of emergencies, dial your local emergency number.</li>
+                <li>User Responsibility: Users are responsible for the accuracy of the images and information they provide.</li>
+                <li>No Guarantee of Results: Using SkinSight-AI does not guarantee a correct diagnosis or treatment plan.</li>
+                <li>Contact Us: For questions, feedback, or concerns, please contact us through the provided contact information.</li>
+              </ul>
+        </div>
+
+    </div>
+<!--Footer-->
+<footer>
+    <div class="container">
+        <div class="row">
+              <div class="col" id="company"  >
+                  <img src="{% static 'img/logo-color.png' %}" style="height: 50px; width: 50px;">
+                  <h3>
+                    SkinSight Ai is not intended to perform diagnosis, but rather to provide users the ability to image, track, and better understand their moles.
+                  </h3>
+                  
+              </div>
+
+
+              <div class="col" id="useful-links">
+                <h3>Links</h3>
+                <div class="links">
+                 <a href="{% url 'about' %}">About Us</a>
+                 <a href="{% url 'feature_page' %}">Features</a>
+                 <a href="{% url 'artificial_intelligence' %}">Artificial Intelligence</a>
+                   <a href="{% url 'contact' %}">Contact Us</a>
+                   <a href="{% url 'register_page' %}">Register</a>
+                <a href="{% url 't&c_page' %}">T&C</a>
+
+                   <a href="">FAQ</a>
+                </div>
+             </div>
+
+             <div class="col" id="company">
+                <h3>
+                    If you have any question about our AI system - contact with us through email:
+                </h3>
+                <h5>support@skinsight-ai.com
+                </h5>
+                <div class="social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                  </div>
+                
+            </div>
+        
+        </div>
+
+        <div class="row">
+              <div class="form">
+                <form action="">
+                    <input type="text" placeholder="Email here...">
+                    <button><i class="fa fa-paper-plane"></i></button>
+                </form>
+              </div>
+        </div>
+
+    </div>
+ </footer>
+<b style="font-style: italic; color: red; padding: 20px 0 20px 0;"><center>SkinSight AI | All Rights Reserved. Copyright © 2023
+</center></b>
+<script src="{% static 'js/faq.js' %}"></script>
+</body>
+</html>
