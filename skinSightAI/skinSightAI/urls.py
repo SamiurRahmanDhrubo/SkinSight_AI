@@ -53,6 +53,7 @@ urlpatterns = [
     path('scan/', home.views.scan_page, name='scan_page'),\
     path('check_payment_status/', home.views.check_payment_status, name='check_payment_status'),
     path('result/', home.views.result_view, name='result_page'),
+    path('resulthistory/', home.views.result_history, name='result_history'),
     path('password_reset/',auth_views.PasswordResetView.as_view(
         template_name = 'password_reset.html'
     ),name='password_reset'),

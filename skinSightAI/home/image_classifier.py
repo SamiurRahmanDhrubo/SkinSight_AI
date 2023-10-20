@@ -4,7 +4,7 @@ import numpy as np
 
 
 # Define the path to your pre-trained model
-model_path = "D:\SkinSightAdditional\skin_disease_svm_improve_final.pkl"  # Update with the correct path
+model_path = "C:/Users/user/Downloads/skin_disease_svm_improve_final.pkl"  # Update with the correct path
 
 # Load the pre-trained model
 model = joblib.load(model_path)

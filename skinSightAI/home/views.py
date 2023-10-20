@@ -191,6 +191,10 @@ from .image_classifier import preprocess_and_predict  # Import the preprocess_an
 
 from .models import UploadedImage
 
+from django.shortcuts import render, redirect
+from .models import UserProfile, ResultHistory
+from .forms import UploadImageForm
+
 def scan_page(request):
     if request.user.is_authenticated:
         user_profile = UserProfile.objects.get(user=request.user)
@@ -208,6 +212,10 @@ def scan_page(request):
                     user_profile.value -= 1
                     user_profile.save()
 
+                    # Save the result in the user's result history
+                    result_history = ResultHistory(user_profile=user_profile, image=image_instance.image, result=prediction)
+                    result_history.save()
+
                     return render(request, 'result.html', {'image_instance': image_instance, 'prediction': prediction, 'user_profile': user_profile})
             else:
                 form = UploadImageForm()
@@ -216,6 +224,7 @@ def scan_page(request):
             return redirect('/payment')
     else:
         return redirect('/login')
+
 
 
 
@@ -270,3 +279,23 @@ def profile(request):
             # user_profile.payment_status = True
             # user_profile.value = 5
             # user_profile.save()
+
+from django.shortcuts import redirect
+from datetime import datetime
+from .models import UserProfile, ResultHistory
+
+from django.shortcuts import redirect, render
+
+from django.shortcuts import render
+from .models import ResultHistory
+
+def result_history(request):
+    if request.user.is_authenticated:
+        user_profile = UserProfile.objects.get(user=request.user)
+        result_history = ResultHistory.objects.filter(user_profile=user_profile).order_by('-timestamp')
+        return render(request, 'result_history.html', {'result_history': result_history})
+    else:
+        return redirect('/login')
+# Render an HTML form for uploading results
+
+
