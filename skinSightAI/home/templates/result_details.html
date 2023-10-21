@@ -1,0 +1,214 @@
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Details</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/result_details.css' %}">
+    <!-- Include Bootstrap CSS (CDN) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <style>
+        /* Add your CSS styles here */
+        .disease-title {
+            padding-top: 5%;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .disease-paragraph {
+            padding: 4% 8%;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .disease-paragraph h3{
+            margin-bottom: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div
+      class="banner"
+      style="background-image: url('{%static 'img/hlt.jpg'%}');">
+      <nav>
+        <div class="navbar">
+          <img src="{% static 'img/logo-color.png' %}" class="logo" />
+
+          <ul>
+            <li><a href="{% url 'home_page' %}">Home</a></li>
+            <li><a href="{% url 'feature_page2' %}">Features</a></li>
+            <li><a href="{% url 'about2' %}">About Us</a></li>
+            <li><a href="{% url 'contact2' %}">Contact Us</a></li>
+            <li><a href="{% url 't&c_page2' %}">T&C</a></li> 
+            <li><a href="{% url 'profile_page' %}">Profile</a></li> 
+             
+
+            <li><a href="{% url 'faq_page2' %}">FAQ</a></li> 
+            <li><a href="{% url 'result_history' %}">Result History</a></li>
+
+            <li><a href="{% url 'artificial_intelligence2' %}">Artificial Intelligence</a></li>
+            
+
+            <li>
+              <a href="{% url 'history' %}">
+                History
+                {% if has_pending_payment %}
+                  <span class="red-dot"></span>
+                {% endif %}
+              </a>
+            </li>
+            <li><a href="{% url 'logout' %}">Logout</a></li> 
+                
+          </ul>
+        </div>
+      </nav>
+      <div class="content" style="background-color: 	#3580a0; opacity: .8;">
+        <h1>Say No To Skin Diseases!</h1>
+        <h3>
+          Check your skin on the smartphone and get instant results within 1
+          minute.
+        </h3>
+        
+        <p style="font-size: 1; color: black">
+          * The scan result is not a diagnosis. To obtain an accurate diagnosis
+          and a recommendation for treatment - consult your doctor.
+        </p>
+      </div>
+    </div>
+        <div class="ddt">
+           <center> <h1 class="disease-title"> You may have</h1> <br> <h1><b>{{ disease|slice:"2:-2" }}</h1></b></center><br>
+            <h3 class="disease-paragraph">{{ paragraph|safe }}</h3>
+        </div>
+    
+    <!--Footer-->
+    <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col" id="company">
+              <img
+                src="{% static 'img/logo-color.png' %}"
+                style="height: 50px; width: 50px"
+              />
+              <h3>
+                SkinSight Ai is not intended to perform diagnosis, but rather to
+                provide users the ability to image, track, and better understand
+                their moles.
+              </h3>
+            </div>
+  
+            <div class="col" id="useful-links">
+              <h3>Links</h3>
+              <div class="links">
+                <a href="{% url 'about' %}">About Us</a>
+                <a href="{% url 'feature_page' %}">Features</a>
+                <a href="">Artificial Intelligence</a>
+                <a href="{% url 'contact' %}">Contact Us</a>
+                <a href="{% url 'register_page' %}">Register</a>
+                <a href="{% url 't&c_page' %}">T&C</a>
+  
+                <a href="">FAQ</a>
+              </div>
+            </div>
+  
+            <div class="col" id="company">
+              <h3>
+                If you have any question about our AI system - contact with us
+                through email:
+              </h3>
+              <h5>support@skinsight-ai.com</h5>
+              <div class="social">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="form">
+              <form action="">
+                <input type="text" placeholder="Email here..." />
+                <button><i class="fa fa-paper-plane"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <i class="fa-solid fa-angles-up" id="scrollToTopBtn"></i>
+      </footer>
+      <b style="font-style: italic; color: red; padding: 20px 0 20px 0"
+        ><center>SkinSight AI | All Rights Reserved. Copyright © 2023</center></b
+      >
+  
+      <!-- Include Bootstrap JS (CDN) and jQuery (required for Bootstrap) -->
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+      <!-- <script>
+        // JavaScript to toggle notification dropdown
+        function toggleNotification() {
+          var notificationDropdown = document.querySelector('.notification-dropdown');
+          notificationDropdown.classList.toggle('notification-active');
+        }
+        
+      // </script> -->
+      //  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+       <!-- Add this script at the end of your HTML body -->
+  <!-- <script>
+    function checkPaymentStatus() {
+    $.get("/check_payment_status/", function (data) {
+      console.log("Payment status:", data.payment_status); // Add this line for debugging
+      if (data.payment_status === 1) {
+        // Check if the "popupShown" cookie is not set
+        if (!getCookie("popupShown")) {
+          // Show the popup
+          $("#payment-popup").show();
+  
+          // Set the "popupShown" cookie to "true"
+          setCookie("popupShown", "true", 1); // The second argument can be a flag, and the third argument is the expiration date
+        }
+      }
+    });
+  } -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+          function checkPaymentStatus() {
+              $.get("/check_payment_status/", function (data) {
+                  if (data.payment_status === 1) {
+                      // Payment is done, remove the red dot
+                      $(".red-dot").remove();
+                  }
+              });
+          }
+  
+          // Check payment status every 30 seconds (adjust as needed)
+          setInterval(checkPaymentStatus, 30000);
+  
+  
+          const scrollToTopButton = document.getElementById("scrollToTopBtn");
+  
+  window.onscroll = () => {
+      if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+          scrollToTopButton.style.display = "block";
+      } else {
+          scrollToTopButton.style.display = "none";
+      }
+  };
+  
+  scrollToTopButton.addEventListener("click", () => {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+  });
+      </script>
+      
+      
+      
+</body>
+</html>
