@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import home.views
+import home.views_result
 from django.contrib.auth.views import LogoutView
 from django.conf import settings
 from django.conf.urls.static import static
@@ -28,7 +29,7 @@ urlpatterns = [
     path('faq2/', home.views.faq2, name='faq_page2'),
     path('home/', home.views.home, name='home_page'),
     path('Payment/', home.views.paypop, name='popUp'),
-    path('result_details/<str:disease>/', home.views.result_details, name='result_details'),
+    path('result_details/<str:disease>/', home.views_result.result_details, name='result_details'),
 
     path('admin_page/', home.views.admin_page, name='admin_page'),
     path('toggle_payment_status/<int:request_id>/', home.views.toggle_payment_status, name='toggle_payment_status'),
