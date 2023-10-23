@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History</title>
+    <title>Payment History</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
     <!-- Include Bootstrap CSS (CDN) -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -28,15 +28,6 @@
     
                 <li><a href="{% url 'artificial_intelligence2' %}">Artificial Intelligence</a></li>
                 
-    
-                <li>
-                  <a href="{% url 'history' %}">
-                    History
-                    {% if has_pending_payment %}
-                      <span class="red-dot"></span>
-                    {% endif %}
-                  </a>
-                </li>
                 <li><a href="{% url 'logout' %}">Logout</a></li> 
               </ul>
           </div>

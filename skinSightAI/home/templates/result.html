@@ -29,26 +29,19 @@
                 <img src="{% static 'img/logo-color.png' %}" class="logo" alt="Logo">
                 <ul>
                     <li><a href="{% url 'home_page' %}">Home</a></li>
-            <li><a href="{% url 'feature_page' %}">Features</a></li>
-            <li><a href="{% url 'about' %}">About Us</a></li>
-            <li><a href="{% url 'contact' %}">Contact Us</a></li>
-            <li><a href="{% url 't&c_page' %}">T&C</a></li> 
+            <li><a href="{% url 'feature_page2' %}">Features</a></li>
+            <li><a href="{% url 'about2' %}">About Us</a></li>
+            <li><a href="{% url 'contact2' %}">Contact Us</a></li>
+            <li><a href="{% url 't&c_page2' %}">T&C</a></li> 
             <li><a href="{% url 'profile_page' %}">Profile</a></li> 
 
-            <li><a href="{% url 'faq_page' %}">FAQ</a></li> 
-            <li><a href="{% url 'result_history' %}">Result History</a></li>
-
-            <li><a href="{% url 'artificial_intelligence' %}">Artificial Intelligence</a></li>
+            <li><a href="{% url 'faq_page2' %}">FAQ</a></li> 
             
 
-            <li>
-              <a href="{% url 'history' %}">
-                History
-                {% if has_pending_payment %}
-                  <span class="red-dot"></span>
-                {% endif %}
-              </a>
-            </li>
+            <li><a href="{% url 'artificial_intelligence2' %}">Artificial Intelligence</a></li>
+            
+
+            
             <li><a href="{% url 'logout' %}">Logout</a></li> 
                 </ul>
             </div>
