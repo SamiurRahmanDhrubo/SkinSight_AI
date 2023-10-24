@@ -19,30 +19,26 @@ def check_payment_status(request):
         payment_request = PaymentRequest.objects.filter(phone_number=user_phone_number).first()
         if payment_request and payment_request.payment_status == 1:
             return JsonResponse({'payment_status': 1})
+        
     
     return JsonResponse({'payment_status': 0})
-def toggle_payment_status(request, request_id):
-    try:
-        payment_request = PaymentRequest.objects.get(id=request_id)
+# def toggle_payment_status(request, request_id):
+#     try:
+#         payment_request = PaymentRequest.objects.get(id=request_id)
         
-        # Toggle the payment status of PaymentRequest
-        payment_request.payment_status = not payment_request.payment_status
-        payment_request.save()
+#         # Toggle the payment status of PaymentRequest
+#         payment_request.payment_status = not payment_request.payment_status
+#         payment_request.save()
         
-        # Retrieve the associated UserProfile
-        user_profile = UserProfile.objects.get(full_name=payment_request.full_name)
+#         # Retrieve the associated UserProfile
+#         user_profile = UserProfile.objects.get(full_name=payment_request.full_name)
         
-        # Toggle the payment status of UserProfile
-        user_profile.payment_status = payment_request.payment_status
-        if user_profile.payment_status == 1:
-            user_profile.value = 5
-        else:
-            user_profile.value = 0
-        user_profile.save()
+#         # Toggle the payment status of UserProfile
         
-        return JsonResponse({'status': 'done' if payment_request.payment_status else 'pending'})
-    except PaymentRequest.DoesNotExist:
-        return JsonResponse({'status': 'error'}, status=404)
+        
+#         return JsonResponse({'status': 'done' if payment_request.payment_status else 'pending'})
+#     except PaymentRequest.DoesNotExist:
+#         return JsonResponse({'status': 'error'}, status=404)
 
 def landing(request):
     return render(request, 'landing.html')
@@ -57,12 +53,8 @@ def admin_page(request):
 
 def home(request):
     return render(request, 'home.html')
-def check_payment_status(request):
-    if request.user.is_authenticated:
-        user_phone_number = request.user.userprofile.phone_number
-        payment_request = PaymentRequest.objects.filter(phone_number=user_phone_number).first()
-        if payment_request and payment_request.payment_status == 1:
-            return JsonResponse({'payment_status': 1})
+
+
       
 
 def features(request):
@@ -250,18 +242,25 @@ def payment(request):
             payment_request = PaymentRequest(
                 full_name=request.POST.get('name'),
                 phone_number=user_profile.phone_number,
-                payment_status=False  # Set to True since payment is successful
+                payment_status=True  # Set to True since payment is successful
             )
             payment_request.save()
             
             # Update the UserProfile based on PaymentRequest's payment status
-            
+            user_profile.payment_status = payment_request.payment_status
+            if user_profile.payment_status == 1:
+                user_profile.value = 5
+            else:
+                user_profile.payment_status = 0
+                user_profile.value = 0
+            user_profile.save()
             
             return redirect('/Payment')  # Redirect to the home page after successful payment and phone number match
         else:
             return render(request, 'payment.html', {'error_message': 'Phone number does not match.'})
     else:
         return render(request, 'payment.html')
+
 
 def profile(request):
     if request.method == 'POST':
@@ -271,15 +270,16 @@ def profile(request):
     else:
         form = UserProfileForm(instance=request.user.userprofile)
     
+    
     return render(request, 'profile_page.html', {'user_profile': request.user.userprofile, 'form': form})
 
 # if PaymentRequest.payment_status == True:
-            #     user_profile.payment_status = True
-            #     user_profile.value = 5
-            #     user_profile.save()
-            # user_profile.payment_status = True
-            # user_profile.value = 5
-            # user_profile.save()
+#                 user_profile.payment_status = True
+#                 user_profile.value = 5
+#                 user_profile.save()
+#             user_profile.payment_status = True
+#             user_profile.value = 5
+#             user_profile.save()
 
 from django.shortcuts import redirect
 from datetime import datetime

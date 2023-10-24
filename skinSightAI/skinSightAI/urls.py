@@ -32,7 +32,7 @@ urlpatterns = [
     path('result_details/<str:disease>/', home.views_result.result_details, name='result_details'),
 
     path('admin_page/', home.views.admin_page, name='admin_page'),
-    path('toggle_payment_status/<int:request_id>/', home.views.toggle_payment_status, name='toggle_payment_status'),
+    # path('toggle_payment_status/<int:request_id>/', home.views.toggle_payment_status, name='toggle_payment_status'),
     path('payment/', home.views.payment, name='payment_page'),
     path('terms/', home.views.term, name='t&c_page'),
     path('terms2/', home.views.term2, name='t&c_page2'),
