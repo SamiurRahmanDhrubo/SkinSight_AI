@@ -14,6 +14,8 @@ make informed decisions about their health.
 We are excited to share our technology with the world and to help people
 live healthier lives. If you have any questions or feedback, please
 don't hesitate to contact us.
+
+<b>This Project has been made using Machine Learning Algorithm-SVM</b>
 <br>
 <br>
 <b> Home page </b>
